@@ -1,0 +1,23 @@
+% Ler o ficheiro CSV
+frases = readtable('dataset112.csv');
+disp(frases);
+
+
+%ver se há frases duplicadas
+duplicatedRows = duplicated(data);
+disp('Linhas duplicadas:')
+disp(data(duplicatedRows, :));
+
+%remover frases duplicadas
+data = unique(data, 'rows');
+
+
+%agora vamos "normalizar o texto", ou seja,
+%converter texto para minusculas
+frases = lower(frases);
+
+%remover pontuações
+textData = erasePunctuation(textData);
+
+%remover números e caracteres especiais
+frsa = regexprep(textData, '[^a-zA-Z\s]', ''); % Remove tudo exceto letras e espaços
