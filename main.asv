@@ -1,23 +1,25 @@
 % Ler o ficheiro CSV
-frases = readtable('dataset112.csv');
-disp(frases);
+data = readtable('dataset.csv');
+% Exibir os nomes das colunas
+disp(data.Properties.VariableNames);
 
+% Dividir a coluna única em duas: Frases e Categoria
+splitData = split(data.Text, ' : ');
 
-%ver se há frases duplicadas
-duplicatedRows = duplicated(data);
-disp('Linhas duplicadas:')
-disp(data(duplicatedRows, :));
+frases = splitData(:, 1); % Coluna com as frases
+%categorias = splitData(:, 2); % Coluna com as categoria
 
-%remover frases duplicadas
-data = unique(data, 'rows');
+categorias = [];
+for i = 1 : data.Category
+    categoias[i] == 
+end
 
+% excluir duplicadas
+frases = unique(frases, 'rows');
 
-%agora vamos "normalizar o texto", ou seja,
-%converter texto para minusculas
+%converter texto em minusculas
 frases = lower(frases);
+disp(frases)
 
-%remover pontuações
-textData = erasePunctuation(textData);
+%------------------------------
 
-%remover números e caracteres especiais
-frsa = regexprep(textData, '[^a-zA-Z\s]', ''); % Remove tudo exceto letras e espaços

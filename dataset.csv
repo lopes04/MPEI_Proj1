@@ -1,0 +1,299 @@
+Text : Category
+
+I need help immediately, there's a fire here. : B
+Someone is trying to break into my home. : P
+I think I'm having a heart attack. : I
+There's been a car accident nearby. : I
+I hear gunshots in my neighborhood. : P
+My child is choking and can't breathe. : P
+I see smoke coming from the building across the street. : B
+I found an unconscious person on the sidewalk. : I
+There's a fight happening outside my window. : P
+I smell gas in my house. : B
+There's a suspicious package left unattended. : P
+I witnessed a hit and run incident. : P
+My elderly parent has fallen and can't get up. : I
+There's a wild animal loose in the area. : B
+My car was stolen. : P
+I've been assaulted. : P
+I need an ambulance, I'm bleeding badly. : B
+There was a loud explosion. : P
+My carbon monoxide detector is beeping. : B
+Someone is threatening me. : P
+There's a downed power line blocking the road. : B
+I'm locked out of my house. : B
+Water is flooding into my basement. : B
+I think someone is following me. : P
+An alarm is going off, and I don't know why. : B
+There's a trespasser on my property. : P
+My pet is trapped and needs help. : B
+I need medical assistance. : I
+I heard a loud crash next door. : B
+There's a chemical spill at the factory. : B
+Someone just stole my purse. : P
+I'm stuck in an elevator. : B
+I think I just saw a missing person. : P
+There's a domestic dispute happening. : P
+I smell something burning but can't find the source. : B
+A tree has fallen and blocked the road. : B
+I'm experiencing severe chest pain. : I
+There's a crowd gathering and things are getting heated. : P
+I found a lost child. : P
+My vehicle broke down in a dangerous spot. : B
+There's a person acting erratically. : P
+I saw someone vandalizing property. : P
+I need help evacuating. : B
+There's a fire alarm going off. : B
+Someone is trapped in a car. : B
+I heard screams coming from the alley. : P
+My friend has overdosed. : I
+There's been a robbery. : P
+I need assistance with a stuck elevator. : B
+There's a large sinkhole opening up. : B
+Someone collapsed on the street. : I
+I think there's a gas leak. : B
+I see flames coming from a building. : B
+There's a medical emergency. : I
+I've been in a car accident. : I
+There's a suspicious person loitering. : P
+I heard a window break downstairs. : P
+Someone is unconscious after a fall. : I
+I need to report a missing person. : P
+There's a hostage situation. : P
+I see a fire spreading quickly. : B
+Someone is trapped under debris. : B
+I need help with a dangerous animal. : B
+There's a flood coming into my home. : B
+Someone is injured and needs help. : I
+I witnessed a burglary. : P
+There's a vehicle blocking emergency access. : P
+I found hazardous materials. : P
+There's a person stuck on a roof. : B
+I heard an explosion underground. : B
+Someone is in danger. : P
+I need to report illegal activity. : P
+There's a protest turning violent. : P
+I see someone with a weapon. : P
+There's smoke filling the hallway. : B
+I need assistance with a medical device. : I
+Someone is having a severe allergic reaction. : I
+I've spotted a wildfire. : B
+There's a structural collapse. : B
+I need help controlling a crowd. : P
+There's a person in the water calling for help. : B
+I saw lightning strike a building. : B
+Someone is trapped in machinery. : B
+I need to report child neglect. : P
+There's an aggressive animal loose. : B
+I found a suspicious object. : P
+There's a person threatening to jump. : P
+I need help with a chemical exposure. : B
+Someone is stuck in a confined space. : B
+I witnessed an assault. : P
+There's a drone interfering with air traffic. : P
+I need to report a crime in progress. : P
+There's a medical alert alarm. : I 
+I heard loud noises that sound like explosions. : B
+Someone is vandalizing public property. : P
+I see people stranded in a flood. : B
+There's a dangerous gas leak. : B
+I need emergency assistance now. : I
+I need help, my house is on fire. : B
+There's a person lying unconscious in the park. : I
+I think someone is drowning in the lake. : I
+I heard a loud bang and the power went out. : B
+There's a dangerous pothole causing accidents. : P 
+My neighbor's house alarm is going off. : B
+I saw a person collapse during the marathon. : I
+There's a child locked in a car. : P
+I smell smoke but can't find the source. : B
+My spouse is unresponsive. : I
+There's a suspicious vehicle parked outside. : P
+I see flames in the forest. : B
+Someone is trespassing in the construction site. : P
+My neighbor is screaming for help. : P
+There's an electrical fire in my kitchen. : B
+My basement is flooding rapidly. : B
+I've been stuck in a snowstorm. : B
+There's a tree about to fall on power lines. : B
+A cyclist was hit by a car. : I
+I need help, I'm lost and injured. : I
+There's a medical emergency at the school. : I
+I see someone tampering with the fire hydrant. : P
+I think I smell propane leaking. : B
+There's been a train derailment. : I
+Someone is trapped under a fallen tree. : B
+My friend is having a seizure. : I
+I see smoke coming from the airplane engine. : B
+There's a person with hypothermia. : I
+My boat is sinking. : B
+There's a gas station fire. : B
+Someone is stuck in a collapsed trench. : B
+I need to report a reckless driver. : P
+There's a sinkhole forming under the street. : B
+A person fell from a height and is injured. : I
+I need assistance evacuating due to flooding. : B
+There's a person suffering from heatstroke. : I
+I witnessed a chemical spill on the highway. : P
+My child has gone missing. : P
+There's a landslide blocking the road. : B
+Someone is trapped in a burning building. : B
+There's a power outage affecting medical equipment. : I
+A building under construction has collapsed. : B
+There's an avalanche in progress. : B
+I need to report a boating accident. : P
+Someone fell into an open manhole. : B
+I see a person in distress on a cliff. : I
+There's an emergency at the airport. : I
+An elderly person is wandering and seems lost. : I
+There's a broken water main flooding the street. : B
+Someone is stuck in a revolving door. : B 
+My coworker is experiencing a severe allergic reaction. : I
+There's a child who fell into a well. : B
+I need to report a utility pole fire. : B
+There's a person trapped in a grain silo. : B
+I think I saw a lightning strike cause a fire. : B
+Someone is experiencing a diabetic emergency. : I
+There's a potential bomb threat. : P
+There's a crane that has toppled over. : B
+Someone is unconscious after being electrocuted. : I
+There's a person stuck in a tree after a parachute malfunction. : B
+My neighbor's roof has collapsed. : B
+There's a broken gas line. : B
+I need to report an active fire in a warehouse. : B
+Someone is trapped under a collapsed wall. : B
+There's a person stranded on a mountain ledge. : B
+I think there's a carbon monoxide leak. : B
+There's a wildfire approaching homes. : B
+I need to report a medical emergency at a concert. : I
+Someone is trapped in an overturned vehicle. : B
+There's a vehicle fire on the highway. : B
+I see someone struggling in the ocean. : B
+There's a pipeline explosion. : B
+Someone is suffering from frostbite. : I
+I need help, my wheelchair is stuck. : B
+There's a person in need of rescue on the ice. : B
+Someone is trapped in a subway tunnel. : B
+I think there's a radiation leak. : B
+There's a gas leak in the apartment complex. : B
+Someone has been bitten by a venomous snake. : I
+I see smoke coming from an underground vault. : B
+There's a person experiencing severe dehydration. : I
+I need to report a fire in the forest. : B
+Someone is having difficulty breathing. : I
+There's a vehicle submerged in water. : B
+I witnessed a building fire. : B
+My friend is unresponsive after diving. : I
+There's a chemical odor causing discomfort. : B
+Someone is trapped in a collapsed mine. : B
+I need to report a structural fire. : B
+There's a person injured on the ski slope. : B
+I think there's a hazardous material spill. : B
+Someone is in distress on a bridge. : I
+There's a person caught in a rip current. : B
+I see flames coming from the power plant. : B
+There's an emergency at the amusement park. : I
+Someone is trapped in an escalator. : B
+I need help with a person experiencing hypoxia. : I
+There's a vehicle stuck on the railroad tracks. : B
+Someone is trapped under a fallen sign. : B
+There's a medical emergency on the airplane. : I
+I see a person stranded in a tree. : B
+There's a person stuck in a storm drain. : B
+I need to report a fire in the laboratory. : B
+Someone is experiencing severe burns. : I
+There's a person trapped in a flood zone. : B
+I witnessed a gas explosion. : B
+There's a person in distress on the rooftop. : B
+Someone has fallen into a septic tank. : B
+I think there's a water contamination issue. : B
+There's an emergency at the power station. : B
+My vehicle is trapped in rising water. : B
+Someone is suffering from smoke inhalation. : B
+I need to report a person trapped in debris. : B
+There's a person stranded in the desert. : B
+Someone is unresponsive after a bee sting. : I
+Someone is in danger of drowning. : B
+I need help, my spouse is choking. : I
+There's a vehicle on fire near the gas pumps. : B
+Someone is trapped in a vehicle after a collision. : B
+There's a person injured during a sporting event. : I
+I think I see a person stuck on a radio tower. : B
+Someone is experiencing hypothermia symptoms. : I
+There's a person trapped in a cave. : B
+I need to report a fire in a high-rise building. : B
+Someone is injured on the hiking trail. : I
+There's a person stuck in an elevator shaft. : B
+I see smoke coming from the engine room. : B
+There's a person experiencing severe abdominal pain. : I
+Someone is trapped in a burning car. : B
+I need assistance with a person having a stroke. : I
+There's a gas leak in the office building. : B
+Someone is injured after falling from a horse. : I
+There's a person in distress on the freeway. : I
+There's a drone interfering with air traffic. : P
+I need to report a crime in progress. : P
+There's a medical alert alarm. : I
+I heard loud noises that sound like explosions. : B
+Someone is vandalizing public property. : P
+I see people stranded in a flood. : B
+There's a dangerous gas leak. : B
+I need emergency assistance now. : I
+My child is locked in the bathroom and not responding. : B
+Someone is trapped in a collapsed bridge. : B
+There's a person injured in a boating accident. : I
+I need to report a potential electrical hazard. : B
+Someone is experiencing a mental health crisis. : I
+There's a fire in the kitchen. : B
+Someone is stuck in a flooded area. : B
+I see a person in distress in the elevator. : B
+There's a medical emergency at the shopping mall. : I
+Someone is trapped under a vehicle. : B
+I need help, my spouse collapsed. : I
+There's a person injured during a construction accident. : I
+Someone is experiencing severe back pain. : I
+There's a fire in the theater. : B
+Someone is trapped in a well. : B
+I think I see a person stuck on a ledge. : B
+Someone is unresponsive after an allergic reaction. : I
+There's a person in distress on a ferry. : I
+I need to report a person stuck in mud. : B
+Someone is experiencing severe headaches. : I
+There's an emergency at the gas station. : I
+Someone is trapped in a building due to an earthquake. : B
+There's a fire in the library. : B
+I need help, there's a medical emergency. : I
+Someone is unresponsive after a fall. : B
+There's an emergency at the refinery. : I
+Someone is trapped under heavy machinery. : B
+There's an emergency at the dam. : I
+I see smoke coming from the engine compartment. : B
+There's a person experiencing severe dizziness. : I
+Someone is trapped in a confined space. : B
+I need help with a person having a seizure. : I
+There's a fire in the manufacturing plant. : B
+Someone is injured by an animal attack. : I
+There's a person stranded on an island. : P
+I think there's a chlorine gas leak. : B
+There's a person in distress on the rooftop. : B
+Someone is suffering from smoke inhalation. : B
+There's an emergency at the power station. : I
+I need to report a person trapped in debris. : B
+Someone is unresponsive after a bee sting. : I
+There's a person trapped in a collapsed building. : B
+Someone is in danger of drowning. : B
+There's a vehicle on fire near the gas pumps. : B
+There's a person injured during a sporting event. : I
+Someone is experiencing hypothermia symptoms. : I
+There's a person trapped in a cave. : B
+I need to report a fire in a high-rise building. : B
+There's a person stuck in an elevator shaft. : B
+I see smoke coming from the engine room. : B
+There's a person experiencing severe abdominal pain. : I
+Someone is trapped in a burning car. : B
+I need assistance with a person having a stroke. : I
+Someone is trapped under a collapsed scaffold. : B
+There's an emergency at the water treatment plant. : I
+Someone is experiencing chest pains. : I
+There's a person stuck in a malfunctioning ride. : B
+I need emergency assistance now. : I
