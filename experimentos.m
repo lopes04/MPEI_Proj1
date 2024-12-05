@@ -1,7 +1,7 @@
 % Ler o ficheiro CSV
 data = readtable('dataset.csv');
 % Exibir os nomes das colunas
-disp(data.Properties.VariableNames);
+%disp(data.Properties.VariableNames);
 
 % Dividir a coluna única em duas: Frases e Categoria
 splitData = split(data.Text, ' : ');
@@ -14,7 +14,7 @@ for i = 1 : height(data)
     categorias{i} = data.Category{i};
 end
 
-disp(categorias)
+%disp(categorias);
 
 % ------------------------------
 %dividir o dataset em treino e teste (60% treino, 40% teste)
@@ -41,43 +41,51 @@ testFrases = frases(testIndices);
 testCategorias = categorias(testIndices);
 
 % Exibir resultados para validação
-disp('Conjunto de treino (frases):');
-disp(trainFrases);
+%disp('Conjunto de treino (frases):');
+%disp(trainFrases);
 
-disp('Conjunto de treino (categorias):');
-disp(trainCategorias);
+%disp('Conjunto de treino (categorias):');
+%disp(trainCategorias);
 
-disp('Conjunto de teste (frases):');
-disp(testFrases);
+%disp('Conjunto de teste (frases):');
+%disp(testFrases);
 
-disp('Conjunto de teste (categorias):');
-disp(testCategorias);
+%disp('Conjunto de teste (categorias):');
+%disp(testCategorias);
 
 %--------------------------------
 
 % Perguntar amanhâ ao stor
 % Converter as frases para string para facilitar o processamento
-%frases = string(frases);
+frases = string(frases);
+frases = lower(frases);
+frasestoken = tokenizedDocument(frases);
+%customStopWords = [stopWords "there's" "someone"];
+%customStopWords = string(customStopWords);
 
 % Remover as stopwords usando removeStopWords
-%frases = removeStopWords(frases);
+cleanfrasestoken = removeStopWords(frasestoken);
+cleanfrases = joinWords(cleanfrasestoken);
+
+frases = string(cleanfrases);
 
 %excluir duplicadas
-frases = unique(frases, 'rows');
-
+length(frases)
+frases = unique(frases);
+length(frases)
 %remover pontos finais das frases
 frases = regexprep(frases, '\.$', '');
 
 %converter texto em minusculas
 frases = lower(frases);
-disp(frases)
+disp(frases);
 
 %------------------------------
 
 %criar o vocabulário único das frases (lista de palavras únicas)
 vocabulary = createVocabulary(frases);
-disp('Vocabulário único:');
-disp(vocabulary);
+%disp('Vocabulário único:');
+%disp(vocabulary);
 
 %------------------------------
 
@@ -102,8 +110,8 @@ end
 %ou seja, esta é a primeira linha da matriz
 %1     0     0     0     0     0
 %significa que na primeria frase aparece uma vez a primeria palavra da Bag-of-Words
-disp('Matriz Ocorrências:');
-disp(matriz_ocorrencias);
+%disp('Matriz Ocorrências:');
+%disp(matriz_ocorrencias);
 
 
 % ------------------------------
@@ -114,8 +122,8 @@ disp(matriz_ocorrencias);
 fraseCorrespondente = frases;
 
 % Exibir o vetor de frases correspondentes
-disp('Frase correspondente a cada linha da matriz Bag-of-Words:');
-disp(fraseCorrespondente);
+%disp('Frase correspondente a cada linha da matriz Bag-of-Words:');
+%disp(fraseCorrespondente);
 
 % ------------------------------
 
