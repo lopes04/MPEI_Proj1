@@ -16,17 +16,18 @@ end
 
 disp(categorias)
 
+% Perguntar amanhâ ao stor
+% Converter as frases para string para facilitar o processamento
+%frases = string(frases);
+
+% Remover as stopwords usando removeStopWords
+%frases = removeStopWords(frases);
+
 %excluir duplicadas
 frases = unique(frases, 'rows');
 
 %remover pontos finais das frases
 frases = regexprep(frases, '\.$', '');
-
-% Converter as frases para o tipo string para usar a função removeStopWords
-frases = string(frases);
-
-% Remover as stopwords usando removeStopWords
-frases = removeStopWords(frases,'IgnoreCase',false);
 
 %converter texto em minusculas
 frases = lower(frases);

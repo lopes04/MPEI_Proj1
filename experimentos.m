@@ -16,6 +16,52 @@ end
 
 disp(categorias)
 
+% ------------------------------
+%dividir o dataset em treino e teste (60% treino, 40% teste)
+
+% Total de linhas
+numRows = size(data, 1);
+
+% Gerar índices aleatórios
+randIndices = randperm(numRows);
+
+% Determinar limites para treino e teste
+trainLimit = round(0.6 * numRows);
+
+% Conjuntos de treino e teste
+trainIndices = randIndices(1:trainLimit);
+testIndices = randIndices(trainLimit + 1:end);
+
+% Separar frases e categorias para treino
+trainFrases = frases(trainIndices);
+trainCategorias = categorias(trainIndices);
+
+% Separar frases e categorias para teste
+testFrases = frases(testIndices);
+testCategorias = categorias(testIndices);
+
+% Exibir resultados para validação
+disp('Conjunto de treino (frases):');
+disp(trainFrases);
+
+disp('Conjunto de treino (categorias):');
+disp(trainCategorias);
+
+disp('Conjunto de teste (frases):');
+disp(testFrases);
+
+disp('Conjunto de teste (categorias):');
+disp(testCategorias);
+
+%--------------------------------
+
+% Perguntar amanhâ ao stor
+% Converter as frases para string para facilitar o processamento
+%frases = string(frases);
+
+% Remover as stopwords usando removeStopWords
+%frases = removeStopWords(frases);
+
 %excluir duplicadas
 frases = unique(frases, 'rows');
 
