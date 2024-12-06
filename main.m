@@ -17,20 +17,23 @@ end
 disp(categorias)
 
 % Perguntar amanhâ ao stor
-% Converter as frases para string para facilitar o processamento
-%frases = string(frases);
-
-% Remover as stopwords usando removeStopWords
-%frases = removeStopWords(frases);
+% Converter as frases para string e minúsculas para facilitar o processamento
+frases = string(frases);
+frases = lower(frases);
 
 %excluir duplicadas
-frases = unique(frases, 'rows');
+frases = unique(frases);
 
-%remover pontos finais das frases
+%remover pontos finais e virgulas das frases
 frases = regexprep(frases, '\.$', '');
+frases = regexprep(frases, ',', '');
 
-%converter texto em minusculas
-frases = lower(frases);
+% Remover as stopwords usando removeStopWords
+frases = tokenizedDocument(frases);
+frases = removeStopWords(frases);
+frases = joinWords(frases);
+frases = string(frases);
+
 disp(frases)
 
 %------------------------------

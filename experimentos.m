@@ -64,7 +64,7 @@ frasestoken = tokenizedDocument(frases);
 %customStopWords = string(customStopWords);
 
 % Remover as stopwords usando removeStopWords
-cleanfrasestoken = removeStopWords(frasestoken);
+cleanfrasestoken = removeStopWords(frasestoken, customStopWords);
 cleanfrases = joinWords(cleanfrasestoken);
 
 frases = string(cleanfrases);
@@ -75,6 +75,9 @@ frases = unique(frases);
 length(frases)
 %remover pontos finais das frases
 frases = regexprep(frases, '\.$', '');
+%remover virgulas das frases
+frases = regexprep(frases, ',', '');
+
 
 %converter texto em minusculas
 frases = lower(frases);
