@@ -1,3 +1,4 @@
+Só para o Sid usar (melhor código aqui meus putos)
 % Ler o ficheiro CSV
 data = readtable('dataset.csv');
 % Exibir os nomes das colunas
@@ -55,7 +56,6 @@ testCategorias = categorias(testIndices);
 
 %--------------------------------
 
-% Perguntar amanhâ ao stor
 % Converter as frases para string para facilitar o processamento
 frases = string(frases);
 frases = lower(frases);
@@ -64,7 +64,7 @@ frasestoken = tokenizedDocument(frases);
 %customStopWords = string(customStopWords);
 
 % Remover as stopwords usando removeStopWords
-cleanfrasestoken = removeStopWords(frasestoken, customStopWords);
+cleanfrasestoken = removeStopWords(frasestoken);
 cleanfrases = joinWords(cleanfrasestoken);
 
 frases = string(cleanfrases);
@@ -87,6 +87,8 @@ disp(frases);
 
 %criar o vocabulário único das frases (lista de palavras únicas)
 vocabulary = createVocabulary(frases);
+%remover strings vazias
+vocabulary = vocabulary(vocabulary ~= "")
 %disp('Vocabulário único:');
 %disp(vocabulary);
 
@@ -113,9 +115,9 @@ end
 %ou seja, esta é a primeira linha da matriz
 %1     0     0     0     0     0
 %significa que na primeria frase aparece uma vez a primeria palavra da Bag-of-Words
-%disp('Matriz Ocorrências:');
-%disp(matriz_ocorrencias);
-
+disp('Matriz Ocorrências:');
+disp(matriz_ocorrencias);
+imagesc(matriz_ocorrencias)
 
 % ------------------------------
 
@@ -123,10 +125,7 @@ end
 % O vetor será simplesmente as frases, já que cada linha da matriz ocorrências
 % corresponde a uma frase única.
 fraseCorrespondente = frases;
-
-% Exibir o vetor de frases correspondentes
-%disp('Frase correspondente a cada linha da matriz Bag-of-Words:');
-%disp(fraseCorrespondente);
+disp(frases);
 
 % ------------------------------
 
@@ -134,5 +133,43 @@ fraseCorrespondente = frases;
 % P(I) - prob de calhar I a dividir por todos
 % P(B) - ...
 % P(P) - ...
-% Depois tenho que fazer a % P("palavra_à_escolha"|I) = (categoria palavra_à_escolha na classe I) / (numero de palavras na classe I)
 
+% Depois tenho que fazer a % P("palavra_à_escolha"|I) = (categoria palavra_à_escolha na classe I) / (numero de palavras na classe I)
+% fazer isto para os três casos, I, P, B
+
+
+%calcular P(I), P(B) e P(P)
+
+%categorias
+categorias_unicas = ['I', 'B', 'P'];
+
+%probs das categorias
+probabilidades_categoria = zeros(length(categorias_unicas), 1);
+
+%contar ocorrências de cada categoria e calcular a probabilidade
+for i = 1:length(categorias_unicas)
+    categoria_count = sum(strcmp(categorias, categorias_unicas(i))); %retorna 1 se forem iguais e soma todos os 1
+    probabilidades_categoria(i) = categoria_count / length(categorias); %casos favoraveis a dividir por casos totais
+end
+
+
+%exibir as probabilidades das categorias
+disp('Probabilidades das categorias:');
+for i = 1:length(categorias_unicas)
+    fprintf('P(%s) = %.3f\n', categorias_unicas(i), probabilidades_categoria(i));
+end
+%calcular probs condicionadas
+
+%criar matriz prob cond para cada palavra dada uma categoria
+num_categorias = length(categorias_unicas);
+prob_cond = zeros(num_categorias, numWords); %aqui linhas = categorias e colunas = palavras
+
+%suavização de laplace (para evitar prob zero)
+suavizacao_laplace = 1;
+
+%calcular P(palavra | categoria)
+for i = 1:num_categorias
+    %vou filtrar frases que pertencem à categoria atual
+    categoria_atual = categorias_unicas(i);
+    indices_categorias = strcmp(trainCategorias, categoria_atual);
+end
