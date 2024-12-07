@@ -1,4 +1,5 @@
 Só para o Sid usar (melhor código aqui meus putos)
+Aqui é Naive Bayes
 % Ler o ficheiro CSV
 data = readtable('dataset.csv');
 % Exibir os nomes das colunas
@@ -10,12 +11,16 @@ splitData = split(data.Text, ' : ');
 frases = splitData(:, 1); % Coluna com as frases
 %categorias = splitData(:, 2); % Coluna com as categoria
 
-categorias = cell(height(data), 1);
-for i = 1 : height(data)
-    categorias{i} = data.Category{i};
-end
 
+categorias = cell(height(data), 1);
+for ctg = 1 : height(data)
+    categorias{ctg} = data.Category{ctg};
+end
 %disp(categorias);
+
+%rrmover linhas duplicadas
+%(fazer isto)
+
 
 % ------------------------------
 %dividir o dataset em treino e teste (60% treino, 40% teste)
@@ -56,10 +61,12 @@ testCategorias = categorias(testIndices);
 
 %--------------------------------
 
+% Processamento das trainFrases
+
 % Converter as frases para string para facilitar o processamento
-frases = string(frases);
-frases = lower(frases);
-frasestoken = tokenizedDocument(frases);
+trainFrases = string(trainFrases);
+trainFrases = lower(trainFrases);
+frasestoken = tokenizedDocument(trainFrases);
 %customStopWords = [stopWords "there's" "someone"];
 %customStopWords = string(customStopWords);
 
@@ -67,26 +74,48 @@ frasestoken = tokenizedDocument(frases);
 cleanfrasestoken = removeStopWords(frasestoken);
 cleanfrases = joinWords(cleanfrasestoken);
 
-frases = string(cleanfrases);
-
-%excluir duplicadas
-length(frases)
-frases = unique(frases);
-length(frases)
+trainFrases = string(cleanfrases);
 %remover pontos finais das frases
-frases = regexprep(frases, '\.$', '');
+trainFrases = regexprep(trainFrases, '\.$', '');
 %remover virgulas das frases
-frases = regexprep(frases, ',', '');
+trainFrases = regexprep(trainFrases, ',', '');
 
 
 %converter texto em minusculas
-frases = lower(frases);
-disp(frases);
+trainFrases = lower(trainFrases);
+disp(trainFrases);
+
+
+% Processamento das testFrases
+
+% Converter as frases para string para facilitar o processamento
+testFrases = string(testFrases);
+testFrases = lower(testFrases);
+frasestoken = tokenizedDocument(testFrases);
+%customStopWords = [stopWords "there's" "someone"];
+%customStopWords = string(customStopWords);
+
+% Remover as stopwords usando removeStopWords
+cleanfrasestoken = removeStopWords(frasestoken);
+cleanfrases = joinWords(cleanfrasestoken);
+
+testFrases = string(cleanfrases);
+%remover pontos finais das frases
+testFrases = regexprep(testFrases, '\.$', '');
+%remover virgulas das frases
+testFrases = regexprep(testFrases, ',', '');
+
+
+%converter texto em minusculas
+testFrases = lower(testFrases);
+disp(testFrases);
+
+
 
 %------------------------------
 
 %criar o vocabulário único das frases (lista de palavras únicas)
-vocabulary = createVocabulary(frases);
+vocabulary = createVocabulary(trainFrases);
 %remover strings vazias
 vocabulary = vocabulary(vocabulary ~= "")
 %disp('Vocabulário único:');
@@ -95,19 +124,19 @@ vocabulary = vocabulary(vocabulary ~= "")
 %------------------------------
 
 %criar a matriz Bag-of-Words (número de ocorrências)
-numFrases = length(frases);
+numFrases = length(trainFrases);
 numWords = length(vocabulary);
 
 %inicializar a matriz com zeros
 matriz_ocorrencias = zeros(numFrases, numWords);
 
 %preencher a matriz Bag-of-Words
-for i = 1:numFrases
+for ctg = 1:numFrases
     %dividir a frase atual em palavras
-    words = split(frases{i});
+    words = split(trainFrases{ctg});
     for j = 1:numWords
         %contar as ocorrências da palavra atual na frase atual
-        matriz_ocorrencias(i, j) = sum(strcmp(words, vocabulary{j}));
+        matriz_ocorrencias(ctg, j) = sum(strcmp(words, vocabulary{j}));
     end
 end
 
@@ -124,8 +153,8 @@ imagesc(matriz_ocorrencias)
 % Criar um vetor com a frase correspondente a cada linha da matriz
 % O vetor será simplesmente as frases, já que cada linha da matriz ocorrências
 % corresponde a uma frase única.
-fraseCorrespondente = frases;
-disp(frases);
+fraseCorrespondente = trainFrases;
+disp(trainFrases);
 
 % ------------------------------
 
@@ -147,16 +176,16 @@ categorias_unicas = ['I', 'B', 'P'];
 probabilidades_categoria = zeros(length(categorias_unicas), 1);
 
 %contar ocorrências de cada categoria e calcular a probabilidade
-for i = 1:length(categorias_unicas)
-    categoria_count = sum(strcmp(categorias, categorias_unicas(i))); %retorna 1 se forem iguais e soma todos os 1
-    probabilidades_categoria(i) = categoria_count / length(categorias); %casos favoraveis a dividir por casos totais
+for ctg = 1:length(categorias_unicas)
+    categoria_count = sum(strcmp(trainCategorias, categorias_unicas(ctg))); %retorna 1 se forem iguais e soma todos os 1
+    probabilidades_categoria(ctg) = categoria_count / length(trainCategorias); %casos favoraveis a dividir por casos totais
 end
 
 
 %exibir as probabilidades das categorias
 disp('Probabilidades das categorias:');
-for i = 1:length(categorias_unicas)
-    fprintf('P(%s) = %.3f\n', categorias_unicas(i), probabilidades_categoria(i));
+for ctg = 1:length(categorias_unicas)
+    fprintf('P(%s) = %.3f\n', categorias_unicas(ctg), probabilidades_categoria(ctg));
 end
 %calcular probs condicionadas
 
@@ -168,8 +197,84 @@ prob_cond = zeros(num_categorias, numWords); %aqui linhas = categorias e colunas
 suavizacao_laplace = 1;
 
 %calcular P(palavra | categoria)
-for i = 1:num_categorias
+for c = 1:num_categorias
     %vou filtrar frases que pertencem à categoria atual
-    categoria_atual = categorias_unicas(i);
-    indices_categorias = strcmp(trainCategorias, categoria_atual);
+    categoria_atual = categorias_unicas(c);
+    indices_categorias = strcmp(trainCategorias, categoria_atual); %retorna 1 se for a mesma categoria
+    frases_categoria = trainFrases(indices_categorias);
+
+    %contar ocorrências de cada palavra nas frases da categoria
+    total_palavras_categoria = 0;
+    palavras_por_categoria = zeros(1, numWords); %counter para cada palavra
+
+    for f = 1:length(frases_categoria)
+        %dividir frase em palavras
+        palavras = split(frases_categoria{f});
+
+        %atualizar contadores
+        total_palavras_categoria = total_palavras_categoria + length(palavras);
+
+        for p = 1:numWords
+            palavras_por_categoria(p) = palavras_por_categoria(p) + sum(strcmp(palavras, vocabulary{p}));
+        end
+    end
+
+    %calcular probs cond
+    prob_cond(c, :) = (palavras_por_categoria + suavizacao_laplace) ./ (total_palavras_categoria + numWords * suavizacao_laplace);
 end
+
+
+for ctg = 1:num_categorias
+    fprintf('Probabilidades condicionais para a categoria %s:\n', categorias_unicas(ctg));
+    for j = 1:numWords
+        fprintf('P(%s | %s) = %.4f\n', vocabulary{j}, categorias_unicas(ctg), prob_cond(ctg, j));
+    end
+    fprintf('\n');
+end
+
+
+%--------------------
+
+% depois para finalizar naive bayes:
+% P(categoria∣frase) = P(categoria) * ∏ P(palavra∣categoria) , ∏ é o multiplicatório
+% é melhor usamos logaritmo para evitar underflow, valores muito pequenos
+
+
+% inicializar vetor para armazenar categorias previstas
+categorias_previstas = strings(length(testFrases), 1);
+
+% variavel para avaliar precisão (ver quantas estão corretas)
+
+% Classificar cada frase de teste
+for i = 1:length(testFrases)
+    % Dividir a frase de teste em palavras
+    words = split(testFrases{i});
+    
+    % Inicializar vetor para probabilidades posteriores
+    prob_posterior = zeros(num_categorias, 1);
+    
+    % Calcular a probabilidade posterior para cada categoria
+    for c = 1:num_categorias
+        % P(Categoria) inicial (log)
+        prob_posterior(c) = log(probabilidades_categoria(c));
+        
+        % Somar log(P(palavra | categoria)) para cada palavra na frase
+        for j = 1:length(words)
+            if ismember(words{j}, vocabulary) % Garantir que a palavra está no vocabulário
+                wordIndex = find(strcmp(vocabulary, words{j}));
+                prob_posterior(c) = prob_posterior(c) + log(prob_cond(c, wordIndex));
+            end
+        end
+    end
+    
+    % Escolher a categoria com maior probabilidade posterior
+    [~, idxMax] = max(prob_posterior);
+    categorias_previstas(i) = categorias_unicas(idxMax);
+end
+
+% categorias previstas com as frases correspondentes
+disp('Frases e suas categorias previstas:');
+for i = 1:length(testFrases)
+    fprintf('Frase: "%s" -> Categoria prevista: %s\n', testFrases{i}, categorias_previstas(i));
+end
+
