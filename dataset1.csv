@@ -231,13 +231,7 @@ I need assistance with a person having a stroke. : I
 There's a gas leak in the office building. : B
 Someone is injured after falling from a horse. : I
 There's a person in distress on the freeway. : I
-There's a drone interfering with air traffic. : P
-I need to report a crime in progress. : P
 There's a medical alert alarm. : I
-Someone is vandalizing public property. : P
-I see people stranded in a flood. : B
-There's a dangerous gas leak. : B
-I need emergency assistance now. : I
 My child is locked in the bathroom and not responding. : B
 Someone is trapped in a collapsed bridge. : B
 There's a person injured in a boating accident. : I
@@ -274,88 +268,12 @@ There's a fire in the manufacturing plant. : B
 Someone is injured by an animal attack. : I
 There's a person stranded on an island. : P
 I think there's a chlorine gas leak. : B
-There's a person in distress on the rooftop. : B
-Someone is suffering from smoke inhalation. : B
 There's an emergency at the power station. : I
-I need to report a person trapped in debris. : B
-Someone is unresponsive after a bee sting. : I
 There's a person trapped in a collapsed building. : B
-Someone is in danger of drowning. : B
-There's a vehicle on fire near the gas pumps. : B
-There's a person injured during a sporting event. : I
-Someone is experiencing hypothermia symptoms. : I
-There's a person trapped in a cave. : B
-I need to report a fire in a high-rise building. : B
-There's a person stuck in an elevator shaft. : B
-I see smoke coming from the engine room. : B
-There's a person experiencing severe abdominal pain. : I
-Someone is trapped in a burning car. : B
-I need assistance with a person having a stroke. : I
 Someone is trapped under a collapsed scaffold. : B
 There's an emergency at the water treatment plant. : I
 Someone is experiencing chest pains. : I
 There's a person stuck in a malfunctioning ride. : B
-I need emergency assistance now. : I
-Flames are engulfing the garage behind my house. : B
-Smoke is billowing from an industrial chimney nearby. : B
-A broken hydrant is flooding the entire block. : B
-There�s a fire spreading rapidly in the dry grassland. : B
-A power transformer just exploded outside my building. : B
-Gas is leaking from a broken pipeline on the street. : B
-A collapsed bridge is obstructing traffic in my area. : B
-A factory explosion caused a massive fire downtown. : B
-Heavy rain has flooded the subway station. : B
-An oil tanker is spilling fuel into the river. : B
-Someone is lurking in the alley behind my house. : P
-I saw a person trying to steal a bike from the parking lot. : P
-A group of people is vandalizing the bus stop. : P
-Someone is attempting to pry open the door of a store. : P
-A person is shouting threats in the middle of the street. : P
-There�s a stranger watching my kids at the park. : P
-A suspicious man is wandering around the neighborhood. : P
-Someone broke into a car and stole items from it. : P
-A fight broke out between two people in the supermarket. : P
-A person is trespassing on private farmland. : P
-A man collapsed while jogging on the trail. : I
-Someone is suffering from a possible spinal injury after a fall. : I
-My coworker fainted in the middle of a meeting. : I
-There�s a child vomiting uncontrollably at the daycare. : I
-A cyclist crashed into a pole and is severely injured. : I
-Someone is slurring their words and showing stroke symptoms. : I
-A swimmer was pulled out of the pool unconscious. : I
-There�s a person holding their chest and struggling to breathe. : I
-A child is bleeding heavily from a deep cut on their arm. : I
-A construction worker fell off a scaffold and is unconscious. : I
-Flames are engulfing the garage behind my house. : B
-Smoke is billowing from an industrial chimney nearby. : B
-A broken hydrant is flooding the entire block. : B
-There�s a fire spreading rapidly in the dry grassland. : B
-A power transformer just exploded outside my building. : B
-Gas is leaking from a broken pipeline on the street. : B
-A collapsed bridge is obstructing traffic in my area. : B
-A factory explosion caused a massive fire downtown. : B
-Heavy rain has flooded the subway station. : B
-An oil tanker is spilling fuel into the river. : B
-Someone is lurking in the alley behind my house. : P
-I saw a person trying to steal a bike from the parking lot. : P
-A group of people is vandalizing the bus stop. : P
-Someone is attempting to pry open the door of a store. : P
-A person is shouting threats in the middle of the street. : P
-There�s a stranger watching my kids at the park. : P
-A suspicious man is wandering around the neighborhood. : P
-Someone broke into a car and stole items from it. : P
-A fight broke out between two people in the supermarket. : P
-A person is trespassing on private farmland. : P
-A man collapsed while jogging on the trail. : I
-Someone is suffering from a possible spinal injury after a fall. : I
-My coworker fainted in the middle of a meeting. : I
-There�s a child vomiting uncontrollably at the daycare. : I
-A cyclist crashed into a pole and is severely injured. : I
-Someone is slurring their words and showing stroke symptoms. : I
-A swimmer was pulled out of the pool unconscious. : I
-There�s a person holding their chest and struggling to breathe. : I
-A child is bleeding heavily from a deep cut on their arm. : I
-A construction worker fell off a scaffold and is unconscious. : I
 Flames are engulfing the garage behind my house. : B
 Smoke is billowing from an industrial chimney nearby. : B
 A broken hydrant is flooding the entire block. : B
@@ -883,7 +801,6 @@ I found a lost child outside. : P
 My car broke down in the middle of traffic. : B
 Someone is acting suspiciously near my house. : P
 I saw someone vandalizing the bus stop. : P
-I need help evacuating from the building. : B
 The fire alarm in my office is ringing. : B
 Someone is trapped in a vehicle after a crash. : B
 I heard screams coming from the alleyway. : P
@@ -893,7 +810,6 @@ Someone is trapped in an elevator. : I
 There is a chemical spill on the highway. : B
 I hear screams coming from the park. : P
 My neighbor's house is on fire. : B
-A tree has fallen and blocked the road. : B
 There is a strange man loitering near my office. : P
 The streetlights in my neighborhood are all out. : B
 A dog is attacking people on the sidewalk. : P
@@ -942,48 +858,34 @@ There is smoke coming from the shopping center. : B
 There is structural damage at the downtown area. : B
 The road is blocked by debris at a residential area. : B
 A building is shaking at the playground. : B
-Floodwaters are rising near the shopping center. : B
 A building is shaking at the mall. : B
 A fire has broken out at the hospital. : B
 The roof has collapsed at the train station. : B
-There is smoke coming from the mall. : B
 A gas leak has been detected at the school. : B
-The road is blocked by debris at a residential area. : B
 Floodwaters are rising near the downtown area. : B
 A fire has broken out at the park. : B
 The road is blocked by debris at the mall. : B
-A power line is down at the train station. : B
 There is smoke coming from the hospital. : B
 There is smoke coming from the playground. : B
 A gas leak has been detected at the downtown area. : B
 The roof has collapsed at the hospital. : B
-A tree has fallen on a residential area. : B
 The road is blocked by debris at the hospital. : B
 A gas leak has been detected at the playground. : B
 The roof has collapsed at the park. : B
-A gas leak has been detected at the school. : B
 A gas leak has been detected at a highway. : B
 A tree has fallen on a highway. : B
 There is smoke coming from a residential area. : B
 The roof has collapsed at a residential area. : B
-Floodwaters are rising near the mall. : B
 There is smoke coming from a highway. : B
-There is smoke coming from a residential area. : B
-A gas leak has been detected at the school. : B
-The road is blocked by debris at the mall. : B
 A power line is down at a highway. : B
 There is structural damage at a residential area. : B
-The road is blocked by debris at the mall. : B
 Floodwaters are rising near the train station. : B
-There is smoke coming from a highway. : B
 A power line is down at the park. : B
 A gas leak has been detected at the mall. : B
 There is a fight breaking out at a highway. : P
 I hear gunshots near the downtown area. : P
-I hear gunshots near the downtown area. : P
 Someone is following me in the downtown area. : P
 A person is behaving aggressively at a highway. : P
-There is a fight breaking out at a highway. : P
 There are reports of violence at the school. : P
 A group is vandalizing a residential area. : P
 There is a fight breaking out at the park. : P
@@ -999,14 +901,11 @@ There is a fight breaking out at the train station. : P
 There are reports of violence at a residential area. : P
 There is an active threat in the playground. : P
 There are reports of violence at the hospital. : P
-A suspicious person is lurking at the downtown area. : P
 There is an active threat in the hospital. : P
 There is a fight breaking out at the shopping center. : P
 A suspicious person is lurking at the school. : P
 Someone has broken into the shopping center. : P
 A person is behaving aggressively at a residential area. : P
-A suspicious person is lurking at the school. : P
-There is a fight breaking out at the train station. : P
 Someone has broken into a residential area. : P
 A person is behaving aggressively at the shopping center. : P
 A group is vandalizing the school. : P
@@ -1016,18 +915,12 @@ I hear gunshots near a highway. : P
 A person is behaving aggressively at the school. : P
 A person is behaving aggressively at the playground. : P
 There are reports of violence at the park. : P
-There are reports of violence at the park. : P
-A suspicious person is lurking at the downtown area. : P
 There is a fight breaking out at the playground. : P
-There are reports of violence at the train station. : P
 Someone is following me in the park. : P
 A theft has occurred at the mall. : P
 A theft has occurred at the school. : P
-A suspicious person is lurking at the downtown area. : P
-There is an active threat in the hospital. : P
 A person is behaving aggressively at the mall. : P
 I hear gunshots near the hospital. : P
-I hear gunshots near the playground. : P
 A person is having a medical emergency at the shopping center. : I
 Someone is choking at the train station. : I
 There is a person trapped in the park. : I
@@ -1038,13 +931,11 @@ A person is experiencing chest pain at the downtown area. : I
 A child is injured at the mall. : I
 An ambulance is needed urgently at the school. : I
 There is a person trapped in the train station. : I
-An ambulance is needed urgently at the school. : I
 Someone has collapsed at the mall. : I
 A child is injured at the hospital. : I
 Someone is choking at a residential area. : I
 There is a person trapped in the shopping center. : I
 An ambulance is needed urgently at the shopping center. : I
-There is a person trapped in the shopping center. : I
 There has been a car accident at the park. : I
 Someone is choking at the hospital. : I
 A person is unconscious at the shopping center. : I
@@ -1053,478 +944,772 @@ An ambulance is needed urgently at the hospital. : I
 Someone has collapsed at a residential area. : I
 Someone has collapsed at a highway. : I
 Someone has collapsed at the hospital. : I
-There is a person trapped in the park. : I
 A child is injured at the playground. : I
 A person is experiencing chest pain at the park. : I
 An ambulance is needed urgently at a residential area. : I
 Someone is bleeding heavily at the playground. : I
-Someone has collapsed at a residential area. : I
 There has been a car accident at the downtown area. : I
 A person is having a medical emergency at the playground. : I
 Someone is bleeding heavily at a highway. : I
 Someone has collapsed at the playground. : I
 Someone is bleeding heavily at the hospital. : I
-Someone is choking at the train station. : I
-Someone has collapsed at the mall. : I
 A person is experiencing chest pain at a residential area. : I
 Someone is bleeding heavily at a residential area. : I
-A child is injured at the mall. : I
 There has been a car accident at a residential area. : I
-Someone is choking at the train station. : I
-There is a person trapped in the shopping center. : I
 A person is having a medical emergency at the hospital. : I
-Someone has collapsed at the playground. : I
 Someone is bleeding heavily at the train station. : I
 An ambulance is needed urgently at the mall. : I
-Someone is bleeding heavily at the playground. : I
-Someone has collapsed at a residential area. : I
-There is structural damage at the shopping center. : B
-Floodwaters are rising near the shopping center. : B
-Floodwaters are rising near the playground. : B
-A power line is down at the train station. : B
-Floodwaters are rising near the mall. : B
-A power line is down at the mall. : B
-A tree has fallen on a residential area. : B
-A tree has fallen on the mall. : B
-There is smoke coming from the mall. : B
-There is smoke coming from the downtown area. : B
-There is smoke coming from the shopping center. : B
-There is structural damage at the downtown area. : B
-The road is blocked by debris at a residential area. : B
-A building is shaking at the playground. : B
-Floodwaters are rising near the shopping center. : B
-A building is shaking at the mall. : B
-A fire has broken out at the hospital. : B
-The roof has collapsed at the train station. : B
-There is smoke coming from the mall. : B
-A gas leak has been detected at the school. : B
-The road is blocked by debris at a residential area. : B
-Floodwaters are rising near the downtown area. : B
-A fire has broken out at the park. : B
-The road is blocked by debris at the mall. : B
-A power line is down at the train station. : B
-There is smoke coming from the hospital. : B
-There is smoke coming from the playground. : B
-A gas leak has been detected at the downtown area. : B
-The roof has collapsed at the hospital. : B
-A tree has fallen on a residential area. : B
-The road is blocked by debris at the hospital. : B
-A gas leak has been detected at the playground. : B
-The roof has collapsed at the park. : B
-A gas leak has been detected at the school. : B
-A gas leak has been detected at a highway. : B
-A tree has fallen on a highway. : B
-There is smoke coming from a residential area. : B
-The roof has collapsed at a residential area. : B
-Floodwaters are rising near the mall. : B
-There is smoke coming from a highway. : B
-There is smoke coming from a residential area. : B
-A gas leak has been detected at the school. : B
-The road is blocked by debris at the mall. : B
-A power line is down at a highway. : B
-There is structural damage at a residential area. : B
-The road is blocked by debris at the mall. : B
-Floodwaters are rising near the train station. : B
-There is smoke coming from a highway. : B
-A power line is down at the park. : B
-A gas leak has been detected at the mall. : B
-There is a fight breaking out at a highway. : P
-I hear gunshots near the downtown area. : P
-I hear gunshots near the downtown area. : P
-Someone is following me in the downtown area. : P
-A person is behaving aggressively at a highway. : P
-There is a fight breaking out at a highway. : P
-There are reports of violence at the school. : P
-A group is vandalizing a residential area. : P
-There is a fight breaking out at the park. : P
-There is an active threat in the shopping center. : P
-Someone has broken into the mall. : P
-There are reports of violence at the train station. : P
-A theft has occurred at the playground. : P
-I hear gunshots near the playground. : P
-Someone has broken into the downtown area. : P
-A group is vandalizing the downtown area. : P
-A suspicious person is lurking at the downtown area. : P
-There is a fight breaking out at the train station. : P
-There are reports of violence at a residential area. : P
-There is an active threat in the playground. : P
-There are reports of violence at the hospital. : P
-A suspicious person is lurking at the downtown area. : P
-There is an active threat in the hospital. : P
-There is a fight breaking out at the shopping center. : P
-A suspicious person is lurking at the school. : P
-Someone has broken into the shopping center. : P
-A person is behaving aggressively at a residential area. : P
-A suspicious person is lurking at the school. : P
-There is a fight breaking out at the train station. : P
-Someone has broken into a residential area. : P
-A person is behaving aggressively at the shopping center. : P
-A group is vandalizing the school. : P
-There is a fight breaking out at the hospital. : P
-Someone has broken into the park. : P
-I hear gunshots near a highway. : P
-A person is behaving aggressively at the school. : P
-A person is behaving aggressively at the playground. : P
-There are reports of violence at the park. : P
-There are reports of violence at the park. : P
-A suspicious person is lurking at the downtown area. : P
-There is a fight breaking out at the playground. : P
-There are reports of violence at the train station. : P
-Someone is following me in the park. : P
-A theft has occurred at the mall. : P
-A theft has occurred at the school. : P
-A suspicious person is lurking at the downtown area. : P
-There is an active threat in the hospital. : P
-A person is behaving aggressively at the mall. : P
-I hear gunshots near the hospital. : P
-I hear gunshots near the playground. : P
-A person is having a medical emergency at the shopping center. : I
-Someone is choking at the train station. : I
-There is a person trapped in the park. : I
-There has been a car accident at a highway. : I
-A child is injured at the shopping center. : I
-A person is unconscious at the downtown area. : I
-A person is experiencing chest pain at the downtown area. : I
-A child is injured at the mall. : I
-An ambulance is needed urgently at the school. : I
-There is a person trapped in the train station. : I
-An ambulance is needed urgently at the school. : I
-Someone has collapsed at the mall. : I
-A child is injured at the hospital. : I
-Someone is choking at a residential area. : I
-There is a person trapped in the shopping center. : I
-An ambulance is needed urgently at the shopping center. : I
-There is a person trapped in the shopping center. : I
-There has been a car accident at the park. : I
-Someone is choking at the hospital. : I
-A person is unconscious at the shopping center. : I
-Someone is bleeding heavily at the park. : I
-An ambulance is needed urgently at the hospital. : I
-Someone has collapsed at a residential area. : I
-Someone has collapsed at a highway. : I
-Someone has collapsed at the hospital. : I
-There is a person trapped in the park. : I
-A child is injured at the playground. : I
-A person is experiencing chest pain at the park. : I
-An ambulance is needed urgently at a residential area. : I
-Someone is bleeding heavily at the playground. : I
-Someone has collapsed at a residential area. : I
-There has been a car accident at the downtown area. : I
-A person is having a medical emergency at the playground. : I
-Someone is bleeding heavily at a highway. : I
-Someone has collapsed at the playground. : I
-Someone is bleeding heavily at the hospital. : I
-Someone is choking at the train station. : I
-Someone has collapsed at the mall. : I
-A person is experiencing chest pain at a residential area. : I
-Someone is bleeding heavily at a residential area. : I
-A child is injured at the mall. : I
-There has been a car accident at a residential area. : I
-Someone is choking at the train station. : I
-There is a person trapped in the shopping center. : I
-A person is having a medical emergency at the hospital. : I
-Someone has collapsed at the playground. : I
-Someone is bleeding heavily at the train station. : I
-An ambulance is needed urgently at the mall. : I
-Someone is bleeding heavily at the playground. : I
-Someone has collapsed at a residential area. : I
-Floodwaters are rising near the shopping center. : B
 The roof has collapsed at the school. : B
 Floodwaters are rising near a residential area. : B
 A power line is down at the playground. : B
 A tree has fallen on the school. : B
 There is structural damage at the park. : B
-A tree has fallen on a highway. : B
-A power line is down at the playground. : B
-The roof has collapsed at the train station. : B
 A power line is down at the shopping center. : B
-Floodwaters are rising near the mall. : B
 A power line is down at a residential area. : B
 The roof has collapsed at the mall. : B
 A gas leak has been detected at a residential area. : B
-There is structural damage at the downtown area. : B
-There is structural damage at the shopping center. : B
-There is structural damage at a residential area. : B
 The road is blocked by debris at the playground. : B
 A power line is down at the school. : B
 A fire has broken out at the shopping center. : B
-A tree has fallen on the mall. : B
-There is smoke coming from the shopping center. : B
 A fire has broken out at a residential area. : B
-A power line is down at a highway. : B
 A tree has fallen on the playground. : B
 There is structural damage at the train station. : B
-The road is blocked by debris at the playground. : B
 There is smoke coming from the park. : B
-A power line is down at the mall. : B
-A tree has fallen on the playground. : B
-A fire has broken out at the park. : B
-Floodwaters are rising near the playground. : B
-There is smoke coming from the shopping center. : B
 A building is shaking at a residential area. : B
-A power line is down at the mall. : B
 A tree has fallen on the train station. : B
-A fire has broken out at the shopping center. : B
 The roof has collapsed at the shopping center. : B
-The roof has collapsed at a residential area. : B
-A fire has broken out at the shopping center. : B
-A tree has fallen on the train station. : B
-A gas leak has been detected at the mall. : B
-The roof has collapsed at the park. : B
-There is structural damage at the park. : B
 There is structural damage at the school. : B
-A gas leak has been detected at the school. : B
 The roof has collapsed at a highway. : B
-A power line is down at the mall. : B
 A fire has broken out at the playground. : B
 A fire has broken out at the train station. : B
-There is structural damage at the school. : B
 A building is shaking at the train station. : B
-Floodwaters are rising near the downtown area. : B
-There is smoke coming from the hospital. : B
 Floodwaters are rising near the hospital. : B
-There is smoke coming from a highway. : B
 A fire has broken out at the downtown area. : B
-The road is blocked by debris at a residential area. : B
-A gas leak has been detected at the playground. : B
 A tree has fallen on the shopping center. : B
-The roof has collapsed at the train station. : B
-A power line is down at a highway. : B
-There is structural damage at the park. : B
 A building is shaking at the school. : B
-A fire has broken out at the hospital. : B
-There is smoke coming from the shopping center. : B
-There is smoke coming from the hospital. : B
-A tree has fallen on the train station. : B
 The road is blocked by debris at a highway. : B
-There is smoke coming from a residential area. : B
-Floodwaters are rising near the playground. : B
-A gas leak has been detected at the downtown area. : B
-A power line is down at the playground. : B
-There is structural damage at a residential area. : B
 A building is shaking at the downtown area. : B
-The road is blocked by debris at the mall. : B
-A fire has broken out at the hospital. : B
-Floodwaters are rising near the train station. : B
 A gas leak has been detected at the park. : B
-A gas leak has been detected at a residential area. : B
-Floodwaters are rising near a residential area. : B
-A gas leak has been detected at a residential area. : B
-A gas leak has been detected at a residential area. : B
 There is smoke coming from the train station. : B
 A tree has fallen on the hospital. : B
-Floodwaters are rising near the shopping center. : B
-The roof has collapsed at the shopping center. : B
-A gas leak has been detected at the downtown area. : B
-The roof has collapsed at the school. : B
-A gas leak has been detected at the downtown area. : B
-The road is blocked by debris at a highway. : B
-The roof has collapsed at the park. : B
 The roof has collapsed at the downtown area. : B
-There is structural damage at a residential area. : B
-A power line is down at the playground. : B
 Floodwaters are rising near the school. : B
-There is smoke coming from the train station. : B
-A gas leak has been detected at the downtown area. : B
-A building is shaking at the mall. : B
 The road is blocked by debris at the school. : B
-Someone has broken into the mall. : P
-A person is behaving aggressively at a residential area. : P
 A suspicious person is lurking at the shopping center. : P
 A theft has occurred at a highway. : P
 There are reports of violence at a highway. : P
-There are reports of violence at the park. : P
 Someone is following me in a highway. : P
-There are reports of violence at a highway. : P
-A theft has occurred at the mall. : P
 I hear gunshots near a residential area. : P
-A theft has occurred at a highway. : P
 Someone has broken into the train station. : P
 Someone is following me in a residential area. : P
-A theft has occurred at the school. : P
 A group is vandalizing the mall. : P
 A suspicious person is lurking at the park. : P
 There is an active threat in the train station. : P
-There are reports of violence at a residential area. : P
 A suspicious person is lurking at a residential area. : P
-There is a fight breaking out at the shopping center. : P
-There is a fight breaking out at a highway. : P
-I hear gunshots near the playground. : P
-I hear gunshots near the hospital. : P
-There is an active threat in the playground. : P
-A suspicious person is lurking at the school. : P
 A person is behaving aggressively at the hospital. : P
-A theft has occurred at a highway. : P
-A suspicious person is lurking at the shopping center. : P
-There is an active threat in the train station. : P
 Someone has broken into the school. : P
 I hear gunshots near the train station. : P
-There is an active threat in the hospital. : P
 There is an active threat in the park. : P
 A theft has occurred at the hospital. : P
 A group is vandalizing the park. : P
 A theft has occurred at the park. : P
-There is a fight breaking out at a highway. : P
 A suspicious person is lurking at a highway. : P
 A group is vandalizing the hospital. : P
 A suspicious person is lurking at the playground. : P
-There is a fight breaking out at the hospital. : P
 Someone has broken into the playground. : P
-A theft has occurred at the school. : P
-A person is behaving aggressively at the shopping center. : P
-A suspicious person is lurking at the park. : P
 There is a fight breaking out at the downtown area. : P
-There is an active threat in the park. : P
-Someone has broken into the train station. : P
 I hear gunshots near the school. : P
-There is an active threat in the playground. : P
-There is a fight breaking out at the shopping center. : P
-There are reports of violence at a highway. : P
 Someone has broken into a highway. : P
-A suspicious person is lurking at the playground. : P
-A suspicious person is lurking at the park. : P
 A group is vandalizing the shopping center. : P
-A suspicious person is lurking at the school. : P
-A suspicious person is lurking at a residential area. : P
-A suspicious person is lurking at the playground. : P
-There are reports of violence at the park. : P
 Someone is following me in the shopping center. : P
 Someone is following me in the mall. : P
-Someone has broken into the park. : P
-A group is vandalizing the hospital. : P
-A group is vandalizing the hospital. : P
 I hear gunshots near the mall. : P
-A group is vandalizing the mall. : P
-There are reports of violence at a highway. : P
 A suspicious person is lurking at the train station. : P
-Someone has broken into the downtown area. : P
-A group is vandalizing the mall. : P
 There are reports of violence at the playground. : P
 A person is behaving aggressively at the downtown area. : P
-There are reports of violence at the playground. : P
-There is a fight breaking out at the shopping center. : P
 There is a fight breaking out at the school. : P
 There are reports of violence at the mall. : P
-A suspicious person is lurking at a residential area. : P
 There is an active threat in the downtown area. : P
-A person is behaving aggressively at the playground. : P
 A group is vandalizing a highway. : P
-Someone has broken into the playground. : P
 I hear gunshots near the shopping center. : P
 A suspicious person is lurking at the mall. : P
-A suspicious person is lurking at the playground. : P
-Someone has broken into the train station. : P
-I hear gunshots near the shopping center. : P
 A person is behaving aggressively at the train station. : P
-I hear gunshots near a residential area. : P
-There are reports of violence at a highway. : P
-There is a fight breaking out at the hospital. : P
-Someone has broken into the school. : P
-A suspicious person is lurking at the school. : P
-Someone has broken into a residential area. : P
-Someone has broken into the playground. : P
 There is a fight breaking out at a residential area. : P
-A person is behaving aggressively at the hospital. : P
 Someone is following me in the school. : P
-A group is vandalizing the park. : P
-I hear gunshots near the school. : P
 A person is unconscious at a highway. : I
 There has been a car accident at the hospital. : I
 Someone is bleeding heavily at the shopping center. : I
 Someone has collapsed at the park. : I
 Someone is choking at the park. : I
-Someone is bleeding heavily at the hospital. : I
 Someone is bleeding heavily at the downtown area. : I
 A person is experiencing chest pain at the school. : I
-Someone is bleeding heavily at a residential area. : I
-A person is experiencing chest pain at the downtown area. : I
-There is a person trapped in the shopping center. : I
-A person is experiencing chest pain at the park. : I
 A child is injured at the park. : I
-Someone is bleeding heavily at the park. : I
-Someone is bleeding heavily at the shopping center. : I
 There has been a car accident at the mall. : I
 A person is having a medical emergency at the downtown area. : I
-There is a person trapped in the park. : I
 Someone is bleeding heavily at the school. : I
 There is a person trapped in a residential area. : I
 A person is experiencing chest pain at the shopping center. : I
-There is a person trapped in the park. : I
 A person is unconscious at the playground. : I
 There has been a car accident at the train station. : I
 Someone is choking at the downtown area. : I
-Someone has collapsed at the park. : I
-Someone is choking at the downtown area. : I
-A person is experiencing chest pain at the park. : I
 A child is injured at a highway. : I
-There has been a car accident at the train station. : I
-A person is unconscious at the playground. : I
 A person is unconscious at the hospital. : I
-There is a person trapped in the train station. : I
-A person is experiencing chest pain at a residential area. : I
 A person is having a medical emergency at the park. : I
 A person is unconscious at the train station. : I
-A person is experiencing chest pain at the shopping center. : I
 Someone is bleeding heavily at the mall. : I
 A child is injured at the school. : I
 There is a person trapped in the downtown area. : I
-Someone is choking at the hospital. : I
-A person is experiencing chest pain at the downtown area. : I
-There is a person trapped in a residential area. : I
-Someone is bleeding heavily at the train station. : I
 A person is experiencing chest pain at the hospital. : I
 A person is unconscious at the park. : I
 A person is experiencing chest pain at the playground. : I
-There has been a car accident at the mall. : I
-A person is unconscious at the playground. : I
 There has been a car accident at the school. : I
 A person is unconscious at the mall. : I
 Someone is choking at the school. : I
 An ambulance is needed urgently at the playground. : I
-A child is injured at the shopping center. : I
-An ambulance is needed urgently at the shopping center. : I
-Someone is bleeding heavily at the train station. : I
-A person is experiencing chest pain at the hospital. : I
-Someone is bleeding heavily at the downtown area. : I
-Someone has collapsed at the hospital. : I
-Someone is bleeding heavily at a highway. : I
 There is a person trapped in the mall. : I
-An ambulance is needed urgently at the mall. : I
-Someone has collapsed at the playground. : I
-A person is unconscious at the train station. : I
-A child is injured at the mall. : I
-A person is experiencing chest pain at the park. : I
-Someone has collapsed at the mall. : I
 Someone has collapsed at the school. : I
 Someone is choking at the playground. : I
-There has been a car accident at a residential area. : I
 There has been a car accident at the shopping center. : I
-A child is injured at the school. : I
-A child is injured at the school. : I
-A person is unconscious at the downtown area. : I
-A child is injured at the playground. : I
-There has been a car accident at the hospital. : I
-A person is unconscious at the mall. : I
 A child is injured at the train station. : I
 An ambulance is needed urgently at the park. : I
 Someone is choking at the shopping center. : I
 Someone has collapsed at the shopping center. : I
 Someone is choking at the mall. : I
 A person is unconscious at a residential area. : I
-Someone is choking at the mall. : I
-Someone is choking at the train station. : I
-Someone is choking at the hospital. : I
-Someone is bleeding heavily at the shopping center. : I
-Someone is choking at the train station. : I
-An ambulance is needed urgently at the school. : I
-There has been a car accident at a residential area. : I
-Someone has collapsed at the playground. : I
-There has been a car accident at the hospital. : I
-Someone is bleeding heavily at the playground. : I
 A person is having a medical emergency at the mall. : I
-There is a person trapped in a residential area. : I
-There has been a car accident at the shopping center. : I
-There is a person trapped in a residential area. : I
-A person is experiencing chest pain at the downtown area. : I
-An ambulance is needed urgently at the playground. : I
 Someone is choking at the hospital. : I 
+A dangerous chemical spill occurred at a busy market. : B
+A fire is spreading rapidly at a ferry terminal. : B
+There is structural collapse at an overpass. : B
+Smoke is billowing from a remote village. : B
+Flooding is affecting a restaurant. : B
+A dangerous chemical spill occurred at a ferry terminal. : B
+A dangerous chemical spill occurred at a restaurant. : B
+The roof of a building collapsed at a high-rise building. : B
+The road is impassable due to water at a restaurant. : B
+Smoke is billowing from an overpass. : B
+Firefighters are needed urgently at a public square. : B
+There is structural collapse at a restaurant. : B
+Heavy debris is blocking access to a stadium. : B
+The roof of a building collapsed at a busy market. : B
+Smoke is billowing from a stadium. : B
+Firefighters are needed urgently at an overpass. : B
+There is a hazardous situation developing at a construction site. : B
+Flooding is affecting a public square. : B
+Heavy debris is blocking access to a busy market. : B
+Smoke is billowing from a construction site. : B
+A fire is spreading rapidly at a public square. : B
+There is structural collapse at a construction site. : B
+A dangerous chemical spill occurred at an overpass. : B
+A fire is spreading rapidly at a stadium. : B
+Firefighters are needed urgently at a construction site. : B
+Flooding is affecting a construction site. : B
+The roof of a building collapsed at a ferry terminal. : B
+Firefighters are needed urgently at a stadium. : B
+There is a hazardous situation developing at an overpass. : B
+The roof of a building collapsed at a remote village. : B
+Heavy debris is blocking access to an overpass. : B
+Firefighters are needed urgently at a ferry terminal. : B
+The roof of a building collapsed at a restaurant. : B
+A fire is spreading rapidly at a high-rise building. : B
+A fire is spreading rapidly at a parking garage. : B
+The road is impassable due to water at a stadium. : B
+There is structural collapse at a public square. : B
+The road is impassable due to water at a parking garage. : B
+A dangerous chemical spill occurred at a high-rise building. : B
+The roof of a building collapsed at a construction site. : B
+There is a hazardous situation developing at a stadium. : B
+There is structural collapse at a remote village. : B
+There is a hazardous situation developing at a busy market. : B
+Heavy debris is blocking access to a parking garage. : B
+Firefighters are needed urgently at a parking garage. : B
+Firefighters are needed urgently at a busy market. : B
+There is structural collapse at a high-rise building. : B
+There is a hazardous situation developing at a public square. : B
+A fire is spreading rapidly at a busy market. : B
+Firefighters are needed urgently at a remote village. : B
+Flooding is affecting a remote village. : B
+The road is impassable due to water at a busy market. : B
+A fire is spreading rapidly at a restaurant. : B
+There is a hazardous situation developing at a restaurant. : B
+The road is impassable due to water at a ferry terminal. : B
+Smoke is billowing from a high-rise building. : B
+Smoke is billowing from a busy market. : B
+The road is impassable due to water at a high-rise building. : B
+A dangerous chemical spill occurred at a remote village. : B
+There is structural collapse at a stadium. : B
+Smoke is billowing from a parking garage. : B
+The roof of a building collapsed at a parking garage. : B
+There is a hazardous situation developing at a high-rise building. : B
+A fire is spreading rapidly at a construction site. : B
+The road is impassable due to water at an overpass. : B
+A fire is spreading rapidly at a remote village. : B
+Firefighters are needed urgently at a restaurant. : B
+The road is impassable due to water at a remote village. : B
+A dangerous chemical spill occurred at a public square. : B
+There is structural collapse at a parking garage. : B
+The roof of a building collapsed at a public square. : B
+The road is impassable due to water at a public square. : B
+Heavy debris is blocking access to a public square. : B
+There is a hazardous situation developing at a parking garage. : B
+There is a hazardous situation developing at a remote village. : B
+Flooding is affecting a stadium. : B
+Smoke is billowing from a restaurant. : B
+Flooding is affecting a high-rise building. : B
+Heavy debris is blocking access to a remote village. : B
+There is a hazardous situation developing at a ferry terminal. : B
+Heavy debris is blocking access to a construction site. : B
+A dangerous chemical spill occurred at a stadium. : B
+Heavy debris is blocking access to a ferry terminal. : B
+There is structural collapse at a ferry terminal. : B
+Heavy debris is blocking access to a high-rise building. : B
+Flooding is affecting a busy market. : B
+Flooding is affecting a parking garage. : B
+Heavy debris is blocking access to a restaurant. : B
+The roof of a building collapsed at an overpass. : B
+The road is impassable due to water at a construction site. : B
+Smoke is billowing from a public square. : B
+Flooding is affecting an overpass. : B
+Smoke is billowing from a ferry terminal. : B
+Firefighters are needed urgently at a high-rise building. : B
+The roof of a building collapsed at a stadium. : B
+A dangerous chemical spill occurred at a parking garage. : B
+A dangerous chemical spill occurred at a construction site. : B
+A fire is spreading rapidly at an overpass. : B
+There is structural collapse at a busy market. : B
+Flooding is affecting a ferry terminal. : B
+A loud altercation is occurring at a high-rise building. : P
+A loud altercation is occurring at a public square. : P
+A person is stalking someone near a parking garage. : P
+A theft is in progress at a parking garage. : P
+A person is stalking someone near a construction site. : P
+There are reports of harassment at an overpass. : P
+A fight has escalated near a parking garage. : P
+A theft is in progress at an overpass. : P
+A theft is in progress at a busy market. : P
+A theft is in progress at a remote village. : P
+A fight has escalated near a construction site. : P
+A suspicious individual is following others at a high-rise building. : P
+There is vandalism happening at a public square. : P
+A potential assault is occurring at a stadium. : P
+There are reports of harassment at a stadium. : P
+A fight has escalated near a restaurant. : P
+There is vandalism happening at a ferry terminal. : P
+A suspicious individual is following others at a restaurant. : P
+There is vandalism happening at a remote village. : P
+There are reports of harassment at a busy market. : P
+A person is stalking someone near a high-rise building. : P
+A potential assault is occurring at a restaurant. : P
+A loud altercation is occurring at a ferry terminal. : P
+A group of people is behaving aggressively at a parking garage. : P
+A suspicious individual is following others at a public square. : P
+A theft is in progress at a construction site. : P
+A loud altercation is occurring at an overpass. : P
+A loud altercation is occurring at a remote village. : P
+A potential assault is occurring at an overpass. : P
+A fight has escalated near a stadium. : P
+A person is stalking someone near a remote village. : P
+A potential assault is occurring at a public square. : P
+A group of people is behaving aggressively at a restaurant. : P
+A person is armed and dangerous near a parking garage. : P
+A person is stalking someone near an overpass. : P
+There is vandalism happening at a construction site. : P
+A suspicious individual is following others at a stadium. : P
+A fight has escalated near a busy market. : P
+A person is armed and dangerous near a busy market. : P
+There is vandalism happening at a high-rise building. : P
+A loud altercation is occurring at a stadium. : P
+A potential assault is occurring at a high-rise building. : P
+A fight has escalated near a remote village. : P
+A loud altercation is occurring at a busy market. : P
+A suspicious individual is following others at a remote village. : P
+There is vandalism happening at a restaurant. : P
+A group of people is behaving aggressively at a construction site. : P
+There is vandalism happening at a busy market. : P
+A person is armed and dangerous near an overpass. : P
+A person is armed and dangerous near a high-rise building. : P
+There is vandalism happening at a stadium. : P
+A suspicious individual is following others at a parking garage. : P
+A theft is in progress at a public square. : P
+A suspicious individual is following others at a ferry terminal. : P
+A person is stalking someone near a public square. : P
+A group of people is behaving aggressively at a busy market. : P
+A potential assault is occurring at a ferry terminal. : P
+A potential assault is occurring at a remote village. : P
+A theft is in progress at a high-rise building. : P
+A suspicious individual is following others at a construction site. : P
+A potential assault is occurring at a parking garage. : P
+A fight has escalated near an overpass. : P
+A fight has escalated near a high-rise building. : P
+There are reports of harassment at a public square. : P
+There are reports of harassment at a ferry terminal. : P
+A person is armed and dangerous near a stadium. : P
+A person is stalking someone near a busy market. : P
+A potential assault is occurring at a construction site. : P
+A theft is in progress at a ferry terminal. : P
+A group of people is behaving aggressively at a stadium. : P
+There are reports of harassment at a parking garage. : P
+A fight has escalated near a public square. : P
+A person is armed and dangerous near a construction site. : P
+A group of people is behaving aggressively at a high-rise building. : P
+A group of people is behaving aggressively at a remote village. : P
+A theft is in progress at a restaurant. : P
+A group of people is behaving aggressively at an overpass. : P
+There are reports of harassment at a remote village. : P
+A loud altercation is occurring at a construction site. : P
+A person is armed and dangerous near a restaurant. : P
+A group of people is behaving aggressively at a ferry terminal. : P
+A fight has escalated near a ferry terminal. : P
+A person is armed and dangerous near a public square. : P
+A person is stalking someone near a ferry terminal. : P
+A suspicious individual is following others at a busy market. : P
+A theft is in progress at a stadium. : P
+A person is stalking someone near a restaurant. : P
+A suspicious individual is following others at an overpass. : P
+There is vandalism happening at a parking garage. : P
+A person is armed and dangerous near a remote village. : P
+There are reports of harassment at a restaurant. : P
+There are reports of harassment at a high-rise building. : P
+A person is armed and dangerous near a ferry terminal. : P
+A person is stalking someone near a stadium. : P
+A loud altercation is occurring at a parking garage. : P
+A group of people is behaving aggressively at a public square. : P
+A potential assault is occurring at a busy market. : P
+There are reports of harassment at a construction site. : P
+A loud altercation is occurring at a restaurant. : P
+There is vandalism happening at an overpass. : P
+A child has suffered a critical injury at a construction site. : I
+A child has suffered a critical injury at a busy market. : I
+An individual is bleeding uncontrollably at a parking garage. : I
+A car crash with injuries occurred at a parking garage. : I
+A car crash with injuries occurred at a stadium. : I
+There is a severe injury at a high-rise building. : I
+A child has suffered a critical injury at a public square. : I
+Emergency medical attention is required at a restaurant. : I
+An individual is bleeding uncontrollably at a restaurant. : I
+There is a person who fell from a height at a remote village. : I
+A person is trapped under heavy debris at an overpass. : I
+An individual is bleeding uncontrollably at a public square. : I
+There is a severe injury at a construction site. : I
+A child has suffered a critical injury at an overpass. : I
+Someone is unconscious and not breathing at a high-rise building. : I
+An individual is bleeding uncontrollably at a stadium. : I
+There is a severe injury at a ferry terminal. : I
+There is a person who fell from a height at a stadium. : I
+There is a person who fell from a height at an overpass. : I
+Someone is experiencing severe chest pain at a restaurant. : I
+A person has collapsed suddenly at a parking garage. : I
+Emergency medical attention is required at a stadium. : I
+A car crash with injuries occurred at a ferry terminal. : I
+A person is trapped under heavy debris at a restaurant. : I
+A child has suffered a critical injury at a stadium. : I
+A person has collapsed suddenly at a high-rise building. : I
+A car crash with injuries occurred at a high-rise building. : I
+There is a person who fell from a height at a restaurant. : I
+A car crash with injuries occurred at a construction site. : I
+A person is trapped under heavy debris at a busy market. : I
+A person is trapped under heavy debris at a construction site. : I
+There is a severe injury at a public square. : I
+There is a person who fell from a height at a construction site. : I
+Someone is experiencing severe chest pain at a stadium. : I
+An individual is bleeding uncontrollably at a construction site. : I
+Emergency medical attention is required at a public square. : I
+There is a severe injury at an overpass. : I
+Emergency medical attention is required at a remote village. : I
+There is a person who fell from a height at a busy market. : I
+Emergency medical attention is required at a parking garage. : I
+Someone is unconscious and not breathing at a public square. : I
+A child has suffered a critical injury at a remote village. : I
+A person is trapped under heavy debris at a public square. : I
+Emergency medical attention is required at a construction site. : I
+Emergency medical attention is required at a busy market. : I
+A person is trapped under heavy debris at a ferry terminal. : I
+An individual is bleeding uncontrollably at a high-rise building. : I
+There is a severe injury at a stadium. : I
+A person is trapped under heavy debris at a high-rise building. : I
+There is a severe injury at a remote village. : I
+Someone is experiencing severe chest pain at a high-rise building. : I
+Emergency medical attention is required at a high-rise building. : I
+A person is trapped under heavy debris at a parking garage. : I
+Someone is experiencing severe chest pain at a construction site. : I
+Someone is unconscious and not breathing at an overpass. : I
+A person has collapsed suddenly at a busy market. : I
+A person has collapsed suddenly at a stadium. : I
+There is a person who fell from a height at a public square. : I
+A car crash with injuries occurred at a remote village. : I
+An individual is bleeding uncontrollably at an overpass. : I
+A person has collapsed suddenly at an overpass. : I
+A child has suffered a critical injury at a parking garage. : I
+A car crash with injuries occurred at a public square. : I
+A car crash with injuries occurred at a busy market. : I
+Someone is experiencing severe chest pain at a public square. : I
+A person has collapsed suddenly at a restaurant. : I
+Someone is experiencing severe chest pain at a busy market. : I
+There is a person who fell from a height at a high-rise building. : I
+Someone is unconscious and not breathing at a remote village. : I
+Someone is experiencing severe chest pain at a parking garage. : I
+Someone is experiencing severe chest pain at a remote village. : I
+A person has collapsed suddenly at a ferry terminal. : I
+Someone is unconscious and not breathing at a stadium. : I
+A child has suffered a critical injury at a restaurant. : I
+A person has collapsed suddenly at a public square. : I
+A person is trapped under heavy debris at a remote village. : I
+Someone is unconscious and not breathing at a restaurant. : I
+A car crash with injuries occurred at a restaurant. : I
+An individual is bleeding uncontrollably at a ferry terminal. : I
+Emergency medical attention is required at a ferry terminal. : I
+A person has collapsed suddenly at a construction site. : I
+Someone is unconscious and not breathing at a parking garage. : I
+There is a severe injury at a parking garage. : I
+A person is trapped under heavy debris at a stadium. : I
+A child has suffered a critical injury at a ferry terminal. : I
+Someone is experiencing severe chest pain at an overpass. : I
+Someone is unconscious and not breathing at a ferry terminal. : I
+Someone is unconscious and not breathing at a construction site. : I
+Someone is experiencing severe chest pain at a ferry terminal. : I
+There is a person who fell from a height at a parking garage. : I
+Emergency medical attention is required at an overpass. : I
+An individual is bleeding uncontrollably at a busy market. : I
+Someone is unconscious and not breathing at a busy market. : I
+A child has suffered a critical injury at a high-rise building. : I
+An individual is bleeding uncontrollably at a remote village. : I
+A person has collapsed suddenly at a remote village. : I
+There is a person who fell from a height at a ferry terminal. : I
+A car crash with injuries occurred at an overpass. : I
+There is a severe injury at a restaurant. : I
+There is a severe injury at a busy market. : I
+A warehouse has exploded after a fire.: B
+A volcano has erupted, spewing ash into the sky.: B
+There's a large fire in a waste management plant.: B
+There's a landslide blocking the road.: B
+There's a severe drought affecting the crops.: B
+A building has collapsed after the explosion.: B
+A nearby factory is emitting toxic smoke.: B
+A large fire has spread to nearby trees.: B
+I see debris falling from a collapsing building.: B
+I see debris scattered across the highway after an accident.: B
+The nearby beach is covered in oil after a spill.: B
+I see emergency vehicles rushing towards an explosion site.: B
+A toxic cloud is spreading over the neighborhood.: B
+I see smoke coming from the train station.: B
+There's a major sewage leak near my home.: B
+I hear a siren and see flashing lights on the road.: B
+The nearby river is overflowing.: B
+A nearby warehouse is on fire.: B
+I see smoke rising from an underground subway fire.: B
+I see a forest fire out of control.: B
+I see a toxic chemical spill from a truck accident.: B
+I see heavy damage to the local park from a storm.: B
+I see a building with shattered windows after a blast.: B
+A ship has capsized near the coast.: B
+A large chemical plant has exploded.: B
+A building has caught fire and people are trapped inside.: B
+A tornado has struck the nearby town.: B
+A bridge has collapsed after a truck crash.: B
+The power lines are down after a severe storm.: B
+I see a boat capsizing on the river.: B
+A wildfire is spreading towards my area.: B
+A building is completely engulfed in flames.: B
+A strong wind has overturned several vehicles.: B
+A flood has washed away cars on the road.: B
+I see a building with a collapsed roof after an explosion.: B
+A landslide has completely blocked the highway.: B
+I see a building engulfed in flames.: B
+I see a large smoke plume rising from a refinery.: B
+There's a serious chemical leak in the factory.: B
+A power plant has been hit by lightning and caught fire.: B
+A gas pipeline has exploded in the area.: B
+I see an airplane crash in the distance.: B
+I see multiple cars on fire after an explosion.: B
+A car crash has caused a pileup on the highway.: B
+A dam has broken and is flooding the valley.: B
+There's a major earthquake causing structural damage.: B
+There's a power outage affecting the entire region.: B
+There's a major flood causing widespread damage.: B
+A chemical leak is spreading near the industrial complex.: B
+There's a forest fire spreading rapidly.: B
+Someone is looking through my neighbor's mailbox.: P
+I hear footsteps running down the street.: P
+A person is walking towards the back of the building.: P
+A person is stealing mail from a neighbor's mailbox.: P
+I hear footsteps in the alley behind my house.: P
+Someone is knocking on the door and asking for someone who doesn't live here.: P
+There's a person acting strangely near my house.: P
+Someone is ringing the doorbell repeatedly.: P
+I see someone hiding behind a bush near my house.: P
+I see someone climbing over the back fence.: P
+Someone is hanging around the parking lot after dark.: P
+A person is acting suspiciously near a bank ATM.: P
+A person is standing too close to the front door of a house.: P
+I hear a person shouting loudly in the street.: P
+Someone is walking up and down the street, checking houses.: P
+A person is looking at my car suspiciously.: P
+I hear voices talking loudly outside my apartment.: P
+I see a person entering a garage through the back door.: P
+I see someone entering a neighbor's house without permission.: P
+I see a man trying to break into a car.: P
+Someone is trying to open a locked door.: P
+Someone is trying to enter the building without permission.: P
+I see a person looking inside the back of a delivery van.: P
+Someone is trying to climb into the window of a store.: P
+A person is sneaking into a building through a side door.: P
+A person is pacing nervously in front of a store.: P
+Someone is trying to break into the storage unit.: P
+I see a person running away from the scene.: P
+I see a person hiding behind a dumpster.: P
+I hear arguing in the hallway outside my apartment.: P
+Someone is knocking on the door aggressively.: P
+I hear a loud crash from the neighbor's house.: P
+I see someone trying to break into the garage.: P
+I see someone sneaking into a backyard.: P
+I see someone peering into windows of nearby homes.: P
+I see a suspicious person loitering around the bank.: P
+Someone is knocking on doors late at night.: P
+There's a person lurking near the school's back entrance.: P
+A person is walking around, looking for something to steal.: P
+I see someone peeking through a fence into a backyard.: P
+Someone is banging on a door to get in.: P
+I see someone walking around with a flashlight in the dark.: P
+I hear someone yelling for help in the street.: P
+I hear strange noises coming from the basement.: P
+I see someone sitting in front of a house, watching it.: P
+I hear people arguing loudly in the alley.: P
+I see a person with a crowbar near a car.: P
+I see a person entering the building through a broken window.: P
+There's a person trying to open the door of a delivery truck.: P
+I see a person who seems to have sprained their ankle.: I
+I see a person who is pale and unresponsive.: I
+Someone is in shock after an accident.: I
+I see a person who is unsteady on their feet and needs help.: I
+Someone is not responding to any questions.: I
+Someone is clutching their abdomen and seems to be in pain.: I
+I see a person who seems to have fainted on the street.: I
+Someone is holding their arm and looks like they are in pain.: I
+A person is gasping for air after an allergic reaction.: I
+I see a person who seems to be having a heart attack.: I
+Someone is shivering uncontrollably and seems to be in distress.: I
+A person is unable to speak and is gasping for air.: I
+Someone is clutching their throat and can't breathe.: I
+A person is sweating heavily and seems to be in distress.: I
+A person is holding their chest and appears to be in pain.: I
+Someone is holding their hand to their chest and looking panicked.: I
+A person is holding their leg and looks like they are in pain.: I
+Someone is choking and can't seem to get air.: I
+I see a person collapsed on the sidewalk.: I
+I see a person with a bleeding wound and no one is helping.: I
+Someone is having an asthma attack.: I
+A person is holding their stomach and seems to be in agony.: I
+I see someone limping and looking for help.: I
+Someone is holding their head and looks like they are dizzy.: I
+I see a person with a swollen face and difficulty breathing.: I
+I see a person coughing violently and not stopping.: I
+Someone is holding their side and appears to be in pain.: I
+Someone is fainting in the crowd.: I
+A person is lying down and looks unconscious.: I
+A person is convulsing on the floor.: I
+I see a person vomiting uncontrollably.: I
+A person is stumbling around and seems disoriented.: I
+Someone is shaking uncontrollably and looks unwell.: I
+A person is choking on something in the restaurant.: I
+Someone is holding their neck and looks like they are suffocating.: I
+I see a person with a broken arm, and they need assistance.: I
+I see a person crying out for help after a fall.: I
+A person is unresponsive after a fall.: I
+A person is bleeding from a cut on their forehead.: I
+I see a person having a seizure in the park.: I
+A person is clutching their head and seems to be in agony.: I
+Someone is breathing very heavily and is in distress.: I
+Someone is struggling to catch their breath.: I
+I see a person who is bleeding from their nose.: I
+I see someone who appears to be in shock and needs help.: I
+I see a person lying in the street, unresponsive.: I
+A person is holding their throat, unable to speak.: I
+Someone is having trouble breathing in the street.: I
+I see a person with a broken leg, unable to walk.: I
+I see a person who is in extreme pain after an injury.: I
+I see a building burning after an earthquake.: B
+A forest fire is spreading toward residential areas.: B
+A train carrying hazardous materials has derailed.: B
+A major earthquake just hit the city center.: B
+I see a gas tank explosion near the gas station.: B
+The river is rising dangerously due to continuous rain.: B
+A nearby explosion has caused widespread panic in the community.: B
+A large number of cars have been damaged due to a massive hailstorm.: B
+A large section of the highway has been washed away by the flood.: B
+I see debris falling from a high-rise after the explosion.: B
+I see an emergency rescue operation near the collapsed building.: B
+A massive landslide has blocked the mountain road.: B
+The flooding is so severe that it's reaching the roofs of houses.: B
+I see a large portion of the bridge collapsed due to the flood.: B
+A volcanic eruption has started, and the ash is covering the town.: B
+The nearby power plant is releasing dangerous fumes.: B
+The smoke from the forest fire is making the air dangerous to breathe.: B
+I see massive smoke coming from a fire in the chemical plant.: B
+I see a building collapse after a severe tremor.: B
+A flood is sweeping through the valley, and people are trapped.: B
+A large boulder has rolled down from the mountain, blocking the road.: B
+A dam is threatening to burst because of the flooding.: B
+The forest fire is raging and consuming large parts of the forest.: B
+A tsunami warning has been issued in the coastal area.: B
+I see smoke rising from a nuclear plant malfunction.: B
+A fire has spread through the nearby industrial zone.: B
+The nuclear power plant is emitting a toxic cloud.: B
+A large meteorite has just crashed nearby.: B
+There's a major avalanche blocking the road.: B
+A serious accident on the freeway has caused major disruptions.: B
+A large propane tank has exploded, causing a fire.: B
+A mudslide has wiped out several houses in the hillside.: B
+There's a complete blackout across the city.: B
+A massive crane has fallen and caused a huge traffic jam.: B
+A strong earthquake has left many buildings collapsed.: B
+The dam upstream is about to collapse, flooding the area.: B
+There's a massive wildfire spreading rapidly.: B
+I see a sinking boat on the lake.: B
+The nearby lake is overflowing and flooding the neighborhood.: B
+I see a collapsed bridge after a truck crash.: B
+A massive car accident on the highway has caused a pile-up.: B
+A large-scale flood is occurring due to the broken levee.: B
+I see a collapsed building after an explosion in the district.: B
+The hospital is being evacuated due to the nearby fire.: B
+A massive wave has hit the coastal area, causing severe damage.: B
+There's an explosion at the local refinery, sending toxic smoke into the air.: B
+A major earthquake has caused widespread destruction across the city.: B
+A large cargo ship has overturned near the shore.: B
+A large aircraft has crashed near the airport.: B
+A severe windstorm has overturned several trees and power lines.: B
+There's a toxic spill near the local chemical factory.: B
+A building fire is raging out of control.: B
+I see a large fire in the oil refinery complex.: B
+A significant explosion at the gas plant has caused widespread damage.: B
+A large-scale power outage has affected the entire region.: B
+I see a chemical spill at the factory, and it's spreading.: B
+A windstorm has blown away several cars on the highway.: B
+A severe storm is ripping off rooftops in the area.: B
+The wildfires are spreading rapidly, engulfing the entire forest.: B
+A toxic gas leak in the factory is affecting nearby residents.: B
+A powerful tornado is tearing through the town.: B
+A large pipeline has burst and is releasing dangerous chemicals.: B
+A chemical reaction at the factory has caused a huge fire.: B
+A severe blizzard has closed off all roads in the area.: B
+A nearby chemical factory has exploded, and debris is flying.: B
+A building explosion has caused significant damage to the area.: B
+A massive oil spill is contaminating the shoreline.: B
+A fire has broken out at a major warehouse complex.: B
+I hear strange footsteps in the hallway outside my door.: P
+I see someone walking around the perimeter of the building.: P
+Someone is hiding behind a tree in my backyard.: P
+I hear a door creaking open in the building late at night.: P
+I see someone walking up and down the street near my house.: P
+I hear someone whispering outside my apartment.: P
+Someone is talking loudly outside my window in the middle of the night.: P
+Someone is walking around my car and seems suspicious.: P
+I hear loud noises from the other side of the door.: P
+I hear a strange noise from the hallway in the building.: P
+I hear loud music coming from the alley outside.: P
+A person is walking by and keeps glancing at my house.: P
+Someone is trying to break into the apartment next door.: P
+I hear whispers coming from the hallway in my apartment building.: P
+There's someone pacing back and forth outside my window.: P
+I hear a loud bang from upstairs and someone running away.: P
+Someone is trying to get into the building from the back.: P
+I see a person staring through the window at me.: P
+Someone is ringing the doorbell constantly.: P
+A person is peeking through the window of the neighbor's house.: P
+I hear loud bangs coming from the street.: P
+I hear voices arguing outside my window.: P
+I see a person standing outside in front of my window for hours.: P
+I see a person in a hoodie walking around the block.: P
+I see someone sneaking around the building, looking suspicious.: P
+Someone is lurking near the alley next to the building.: P
+Someone is sitting near the entrance to my building.: P
+A person is looking through the keyhole of the door next door.: P
+I hear knocking on the door at odd hours of the night.: P
+I hear someone crying outside the building.: P
+I hear footsteps running across the roof of the building.: P
+I see someone walking around the perimeter of the house.: P
+There's a person standing at the corner of the street, watching.: P
+Someone is checking the locks on all the cars in the parking lot.: P
+Someone is moving around the backyard of the house next door.: P
+I hear a door slamming shut in the hallway.: P
+Someone is knocking on my neighbor's door aggressively.: P
+I hear someone knocking on all the doors in the building.: P
+Someone is trying to break into the garage next door.: P
+I see a person watching the house across the street.: P
+I see someone with a backpack looking suspicious near the park.: P
+A person is hiding in the shadows near the alley.: P
+A person is acting suspiciously near the bus stop across the street.: P
+I hear yelling in the parking lot outside.: P
+I hear footsteps on the roof above me.: P
+I see a person hiding behind the tree in my front yard.: P
+I hear a loud argument coming from the alleyway.: P
+I see someone looking through the fence in my backyard.: P
+A person is walking past my house repeatedly at night.: P
+I hear someone banging on my door asking for help.: P
+A person is shouting at someone in the street.: P
+I hear someone knocking on the door of an empty apartment.: P
+Someone is trying to get into the neighbor's house.: P
+A person is sitting in a car, staring at my house.: P
+Someone is walking around my yard at night.: P
+Someone is sitting on my porch in the dark.: P
+I hear someone talking loudly on their phone near my window.: P
+I see someone lurking in the hallway near my apartment.: P
+I see a person trying to climb over the fence into my yard.: P
+I see a person standing in front of my door, staring.: P
+A person is walking up to my front door and knocking loudly.: P
+Someone is having trouble breathing after exposure to smoke.: I
+Someone is clutching their head, feeling dizzy and nauseous.: I
+A person is having severe chest pain and can't breathe properly.: I
+I see a person unable to speak and they're panicking.: I
+A person is lying motionless on the sidewalk after a fall.: I
+A person has collapsed after feeling dizzy and weak.: I
+Someone is having an allergic reaction and can't breathe.: I
+I see a person choking and unable to breathe.: I
+I see a person who has collapsed on the ground, unresponsive.: I
+I see a person stumbling, looking disoriented and weak.: I
+I see someone shaking and appearing to be in shock.: I
+A person is collapsing due to exhaustion and dehydration.: I
+Someone has a broken leg and is lying on the floor.: I
+Someone is holding their head and seems to be in extreme pain.: I
+I see someone having an epileptic seizure on the street.: I
+Someone is holding their face and crying due to a toothache.: I
+I see someone with a deep cut on their leg, bleeding profusely.: I
+Someone is experiencing blurred vision after an accident.: I
+I see a person who is having a seizure in the middle of the street.: I
+I see a person who appears to be losing consciousness after a faint.: I
+Someone has sprained their ankle and can't walk properly.: I
+I see a person with a serious burn injury on their arm.: I
+Someone is holding their stomach and looking like they're in pain.: I
+I see someone with a swollen hand from a possible fracture.: I
+A person is bleeding from their ear after a head injury.: I
+I see a person struggling to stay awake after a severe blow to the head.: I
+A person is shaking and unable to stop it, looking distressed.: I
+A person has collapsed and isn't moving after fainting.: I
+I see someone who is vomiting uncontrollably in the street.: I
+Someone has a severe headache and is holding their temples.: I
+Someone is sweating heavily and breathing rapidly.: I
+Someone is clutching their neck and seems to be in distress.: I
+Someone is having an asthma attack and can't catch their breath.: I
+A person is gasping for air and looks like they're suffocating.: I
+Someone is bleeding from their head after falling from a height.: I
+A person is unconscious after hitting their head in a fall.: I
+A person is struggling to catch their breath after running.: I
+I see a person who looks unwell and is leaning against a wall.: I
+A person is gasping for air after an allergic reaction to something.: I
+Someone is struggling to walk and looks disoriented.: I
+A person is vomiting blood after an accident.: I
+Someone has fallen and is not moving on the sidewalk.: I
+I see a person fainting on the floor and not responding.: I
+A person is bleeding heavily from their arm and needs help.: I
+I see a person who is having trouble swallowing.: I
+A person is unable to move their leg after an injury.: I
+A person is unable to breathe after being exposed to smoke.: I
+I see someone who is fainting in the middle of a crowd.: I
+I see a person shaking uncontrollably and looking unwell.: I
+A person is clutching their stomach and seems to be in pain.: I
+A person has an injured arm and is unable to move it.: I
+Someone is clutching their chest and appears to be having a heart attack.: I
+A person has cut their finger and needs immediate help.: I
+I see someone holding their chest in pain, possibly having a heart attack.: I
+A person is holding their throat and looks like they're choking.: I
+Someone is holding their side and looks like they're in pain.: I
+I see a person bleeding from their mouth after a fall.: I
