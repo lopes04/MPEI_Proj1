@@ -43,4 +43,4 @@ def adicionar_telefones_antes_do_texto(arquivo_csv):
     print(f"Arquivo atualizado salvo como: {novo_arquivo_csv}")
 
 # Exemplo de uso
-adicionar_telefones_antes_do_texto("dataset.csv")
+adicionar_telefones_antes_do_texto("fakedataset.csv")
