@@ -115,7 +115,7 @@ disp(testFrases);
 %criar o vocabulário único das frases (lista de palavras únicas)
 vocabulary = createVocabulary(trainFrases);
 %remover strings vazias
-vocabulary = vocabulary(vocabulary ~= "")
+vocabulary = vocabulary(vocabulary ~= "");
 %disp('Vocabulário único:');
 %disp(vocabulary);
 
