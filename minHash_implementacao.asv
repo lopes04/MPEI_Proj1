@@ -369,30 +369,62 @@ end
 %----------------------------------------------------------------------------------------
 
 % 5 -> recomendações
+% o que vou fazer aqui é, antes de ver a similaridade associo cada frase
+% treino a uma recomendação, e depois essa frase treino vai dar similar com
+% uma frase teste e associo a recomendação que estava associada à frase
+% treino à frase similar teste
 
-%limite de similaridade
-similarity_threshold = 0.45;
+% First, create a mapping between training phrases and recommendation types
+trainPhraseRecommendations = containers.Map();
 
-%iterar frases teste
-for i = 1:length(testFrases)
-    similar_indices = find(similarities(i, :) >= similarity_threshold); %índices de frases similares no treino
-    group = [testFrases(i); trainFrases(similar_indices)]; %adicionar frases similares ao grupo
-    groups{end+1} = unique(group); %evitar duplicadas
+% Associate each training phrase with a recommendation type based on its category
+for i = 1:length(trainFrases)
+    category = trainCategorias{i};
+    switch category
+        case 'I'
+            recType = 'medical';
+        case 'B'
+            recType = 'fires';
+        case 'P'
+            recType = 'stealing';
+    end
+    trainPhraseRecommendations(trainFrases{i}) = recType;
 end
 
-%associar grupos a recomendações
-recommendations = containers.Map();
-recommendations('fogos') = [
-    'Cover the airways with a damp cloth.' ...
-    'Stay away from buildings.'
-    'Take the safest route, avoiding areas with fire or heavy smoke.'
-    'Cover gaps with wet towels to prevent smoke from entering.'
-    'Stay calm'];
+% Initialize storage for test phrase recommendations
+testPhraseRecommendations = containers.Map();
 
-recommendations('inundações') = [
-    'Evite áreas alagadas e procure terreno elevado.' ...
-    ''];
+% Find similar phrases and assign recommendations
+similarity_threshold = 0.45;
 
-recommendations('roubo') = 'Contate a polícia e mantenha a calma.';
+% For each test phrase
+for i = 1:length(testFrases)
+    % Find the most similar training phrase above the threshold
+    [maxSimilarity, bestMatch] = max(similarities(i, :));
+    
+    if maxSimilarity >= similarity_threshold
+        % Get the matching training phrase
+        matchingTrainPhrase = trainFrases{bestMatch};
+        
+        % Get its recommendation type
+        recType = trainPhraseRecommendations(matchingTrainPhrase);
+        
+        % Assign the recommendation to the test phrase
+        testPhraseRecommendations(testFrases{i}) = recType;
+        
+        % Display the mapping
+        fprintf('\nTest Phrase: "%s"\n', testFrases{i});
+        fprintf('Most Similar Training Phrase: "%s"\n', matchingTrainPhrase);
+        fprintf('Similarity: %.2f\n', maxSimilarity);
+        fprintf('Assigned Recommendation Type: %s\n', recType);
+        
+        % Display the actual recommendations
+        fprintf('Recommendations:\n');
+        recList = recommendations(recType);
+        for j = 1:length(recList)
+            fprintf('%d. %s\n', j, recList(j));
+        end
+    end
+end
 
-recommendations('médicas') = [''];
+
