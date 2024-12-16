@@ -1,4 +1,4 @@
-function minhash_signature = generateMinhashSignatures(shingles_hash, num_hashes, prime)
+function minhash_signature = generateMinhashSignatures(shingles_hash, num_hashes, prime, a, b)
     % Função para calcular as assinaturas Minhash
     %
     % Inputs:
@@ -9,9 +9,7 @@ function minhash_signature = generateMinhashSignatures(shingles_hash, num_hashes
     % Output:
     % - minhash_signature: Vetor com as assinaturas Minhash
 
-    % Inicializar coeficientes de hashing aleatórios
-    a = randi([1, prime-1], num_hashes, 1); % Coeficientes 'a'
-    b = randi([0, prime-1], num_hashes, 1); % Coeficientes 'b'
+   
 
     % Inicializar a assinatura com valores infinitos
     minhash_signature = inf(num_hashes, 1);
