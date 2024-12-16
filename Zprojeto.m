@@ -1,4 +1,5 @@
 % Ler dataset principal
+
 data = readtable('dataset1_com_telefones.csv');
 
 % Dividir a coluna única em duas: Frases e Categoria
@@ -58,6 +59,14 @@ splitSpamData = split(spamData.Text, ' : ');
 spamFrases = splitSpamData(:, 1); % Coluna com as frases de SPAM
 spamNumeros = spamData.Phone; % Coluna com os números de telefone de SPAM
 
+spamFrases = string(spamFrases);
+spamFrases = lower(spamFrases); % Converter para minúsculas
+spamfrasestoken = tokenizedDocument(spamFrases); % Tokenizar frases
+cleanspamfrasestoken = removeStopWords(spamfrasestoken); % Remover stopwords
+cleanspamfrases = joinWords(cleanspamfrasestoken); % Reunir palavras
+spamFrases = string(cleanspamfrases);
+spamFrases = regexprep(spamFrases, '[.,]', ''); % Remover pontos e vírgulas
+
 % Carregar números conhecidos como SPAM
 if isfile('lista_negra.csv')
     existentSpamData = readtable('lista_negra.csv');
@@ -71,8 +80,10 @@ end
 % Verificar números de telefone e frases do conjunto de teste
 validSpamIndices = true(length(testFrases), 1); % Inicializar todos os índices como válidos
 
+disp(existentSpam);
+
 for ctg = 1:length(testFrases)
-    numAtual = testNumeros(ctg); % Número atual no conjunto de teste
+    numAtual = string(testNumeros(ctg)); % Número atual no conjunto de teste
     
     % Verificar se o número está na lista negra
     if any(strcmp(numAtual, existentSpam))
@@ -82,18 +93,15 @@ for ctg = 1:length(testFrases)
 end
 
 % Retirar as frases e números marcados como SPAM
-validFrases = testFrases(validSpamIndices);
-validNumeros = testNumeros(validSpamIndices);
-
-% Criar o vocabulário único das frases de treino
-vocabulary = createVocabulary(trainFrases);
-vocabulary = vocabulary(vocabulary ~= ""); % Remover strings vazias
+testFrases = testFrases(validSpamIndices);
+testCategorias = testCategorias(validSpamIndices);
+testNumeros = testNumeros(validSpamIndices);
 
 %%
 
 % Configuração do Bloom Filter
 p = 0.001;  % Probabilidade de falsos positivos
-m = length(trainFrases);
+m = length(spamFrases);
 n = round(-(m * log(p) / (log(2))^2));
 k = round(((n / m) * log(2)));
 
@@ -102,13 +110,13 @@ BF = inicializarBF(n);
 
 % Adicionar elementos ao filtro
 for i = 1:m
-    BF = adicionarBF(BF, trainFrases{i}, k);
+    BF = adicionarBF(BF, spamFrases{i}, k);
 end
 
 % Verificar falsos negativos no conjunto de treino
 falsos = 0;
 for i = 1:m
-    bool = membroBF(BF, trainFrases{i}, k);
+    bool = membroBF(BF, spamFrases{i}, k);
     if bool == false
         falsos = falsos + 1;
     end
@@ -124,23 +132,23 @@ for i = 1:length(testFrases)
         falsos_positivos = falsos_positivos + 1;
 
         % Recuperar o número de telefone associado à frase
-        phoneIndex = find(strcmp(testFrases{i}, validFrases));
+        phoneIndex = find(strcmp(testFrases{i}, testFrases));
 
         if ~isempty(phoneIndex)
-            spamPhone{end + 1} = validNumeros(phoneIndex);  % Encontrar o número associado à frase
-            fprintf('Frase com falso positivo: %s\n', testFrases{i});
-            fprintf('Número de telefone associado: %s\n', spamPhone{end});
+            spamPhone{end + 1} = testNumeros(phoneIndex);  % Encontrar o número associado à frase
+            %fprintf('Frase com falso positivo: %s\n', testFrases{i});
+            %fprintf('Número de telefone associado: %s\n', spamPhone{end});
         end
     end
 end
 
 % Exibir os resultados de falsos positivos
-fprintf('Falsos positivos: %d\n', falsos_positivos);
-fprintf('Probabilidade Prática de Falsos Positivos = %.3f%s\n', (falsos_positivos / length(testFrases)) * 100, "%");
+%fprintf('Falsos positivos: %d\n', falsos_positivos);
+%fprintf('Probabilidade Prática de Falsos Positivos = %.3f%s\n', (falsos_positivos / length(testFrases)) * 100, "%");
 
 % Calcular e exibir a probabilidade teórica de falsos positivos
 pfp = (1 - exp(-(k * m) / n))^k;
-fprintf('Probabilidade Teórica Estimada de Falsos Positivos = %.3f%s\n', pfp * 100, "%");
+%fprintf('Probabilidade Teórica Estimada de Falsos Positivos = %.3f%s\n', pfp * 100, "%");
 
 % Exibir os números de telefone correspondentes aos falsos positivos
 disp('Números de telefone associados aos falsos positivos:');
@@ -184,6 +192,14 @@ writetable(combinedSpamData, 'lista_negra.csv');
     
 %------------------------------
 
+vocabulary = createVocabulary(trainFrases);
+%remover strings vazias
+vocabulary = vocabulary(vocabulary ~= "");
+%disp('Vocabulário único:');
+%disp(vocabulary);
+
+%------------------------------
+
 %criar a matriz Bag-of-Words (número de ocorrências)
 numFrases = length(trainFrases);
 numWords = length(vocabulary);
@@ -205,8 +221,8 @@ end
 %ou seja, esta é a primeira linha da matriz
 %1     0     0     0     0     0
 %significa que na primeria frase aparece uma vez a primeria palavra da Bag-of-Words
-disp('Matriz Ocorrências:');
-disp(matriz_ocorrencias);
+%disp('Matriz Ocorrências:');
+%disp(matriz_ocorrencias);
 imagesc(matriz_ocorrencias)
 % ------------------------------
 
@@ -214,7 +230,7 @@ imagesc(matriz_ocorrencias)
 % O vetor será simplesmente as frases, já que cada linha da matriz ocorrências
 % corresponde a uma frase única.
 fraseCorrespondente = trainFrases;
-disp(trainFrases);
+%disp(trainFrases);
 
 % ------------------------------
 
@@ -243,9 +259,9 @@ end
 
 
 %exibir as probabilidades das categorias
-disp('Probabilidades das categorias:');
+%disp('Probabilidades das categorias:');
 for ctg = 1:length(categorias_unicas)
-    fprintf('P(%s) = %.3f\n', categorias_unicas(ctg), probabilidades_categoria(ctg));
+    %fprintf('P(%s) = %.3f\n', categorias_unicas(ctg), probabilidades_categoria(ctg));
 end
 %calcular probs condicionadas
 
@@ -285,11 +301,11 @@ end
 
 
 for ctg = 1:num_categorias
-    fprintf('Probabilidades condicionais para a categoria %s:\n', categorias_unicas(ctg));
+    %fprintf('Probabilidades condicionais para a categoria %s:\n', categorias_unicas(ctg));
     for j = 1:numWords
-        fprintf('P(%s | %s) = %.4f\n', vocabulary{j}, categorias_unicas(ctg), prob_cond(ctg, j));
+        %fprintf('P(%s | %s) = %.4f\n', vocabulary{j}, categorias_unicas(ctg), prob_cond(ctg, j));
     end
-    fprintf('\n');
+    %fprintf('\n');
 end
 
 
@@ -338,9 +354,9 @@ for i = 1:length(testFrases)
 end
 
 % categorias previstas com as frases correspondentes
-disp('Frases e suas categorias previstas:');
+%disp('Frases e suas categorias previstas:');
 for i = 1:length(testFrases)
-    fprintf('Frase: "%s" -> Categoria prevista: %s\n', testFrases{i}, categorias_previstas(i));
+    %fprintf('Frase: "%s" -> Categoria prevista: %s\n', testFrases{i}, categorias_previstas(i));
 end
 % calcular a precisão
 precisao = (correto / length(testCategorias)) * 100;
