@@ -1,52 +1,87 @@
-% Ler dataset principal
+%% Opção para inserir dados customizados
+    % Ler dataset principal como padrão
+    data = readtable('dataset1_com_telefones.csv');
 
-data = readtable('dataset1_com_telefones.csv');
+    % Dividir a coluna única em duas: Frases e Categoria
+    splitData = split(data.Text, ' : ');
+    frases = splitData(:, 1); % Coluna com as frases
 
-% Dividir a coluna única em duas: Frases e Categoria
-splitData = split(data.Text, ' : ');
-frases = splitData(:, 1); % Coluna com as frases
+    % Copiar categorias diretamente da tabela
+    categorias = data.Category;
 
-% Copiar categorias diretamente da tabela
-categorias = data.Category;
+    % Copiar números diretamente da tabela
+    numeros = data.Phone;
 
-% Copiar números diretamente da tabela
-numeros = data.Phone;
+    % Dividir o dataset em treino e teste (60% treino, 40% teste)
+    numRows = size(data, 1); % Total de linhas
+    randIndices = randperm(numRows); % Gerar índices aleatórios
+    trainLimit = round(0.6 * numRows); % Limite de treino
 
-% Dividir o dataset em treino e teste (60% treino, 40% teste)
-numRows = size(data, 1); % Total de linhas
-randIndices = randperm(numRows); % Gerar índices aleatórios
-trainLimit = round(0.6 * numRows); % Limite de treino
+    trainIndices = randIndices(1:trainLimit);
 
-% Índices para treino e teste
-trainIndices = randIndices(1:trainLimit);
-testIndices = randIndices(trainLimit + 1:end);
+    trainFrases = frases(trainIndices);
+    trainCategorias = categorias(trainIndices);
+    trainNumeros = numeros(trainIndices);
 
-% Separar frases, categorias e números para treino
-trainFrases = frases(trainIndices);
-trainCategorias = categorias(trainIndices);
-trainNumeros = numeros(trainIndices);
+% Perguntar ao usuário se deseja usar dados customizados
+useCustomData = input('Deseja usar frases customizadas e números de telefone? (s/n): ', 's');
 
-% Separar frases, categorias e números para teste
-testFrases = frases(testIndices);
-testCategorias = categorias(testIndices);
-testNumeros = numeros(testIndices);
+if lower(useCustomData) == 's'
+    % Inicializar arrays vazios para frases e números
+    customFrases = [];
+    customNumeros = [];
 
-% Processamento das trainFrases
+    customData = 1;
+
+    % Loop para inserir frases e números customizados
+    while true
+        frase = input('Digite uma frase (ou pressione Enter para terminar): ', 's');
+        if isempty(frase)
+            break; % Termina o loop quando o usuário pressiona Enter
+        end
+        numero = input('Digite o número de telefone associado: ', 's');
+
+        % Adicionar dados ao array
+        customFrases = [customFrases; frase];
+        customNumeros = [customNumeros; numero];
+    end
+
+    % Usar dados customizados como conjunto de teste
+    testFrases = string(customFrases);
+    testNumeros = string(customNumeros);
+    
+    % Copiar categorias vazias (placeholder)
+    testCategorias = repmat("custom", size(testFrases));
+
+    adicionar = input('Deseja adicionar estes dados ao dataset existente? (s/n): ', 's');
+
+else
+    testIndices = randIndices(trainLimit + 1:end);
+
+    customData = 0;
+
+    % Separar frases, categorias e números para teste
+    testFrases = frases(testIndices);
+    testCategorias = categorias(testIndices);
+    testNumeros = numeros(testIndices);
+end
+
+% Processamento das trainFrases (novo)
 trainFrases = string(trainFrases);
 trainFrases = lower(trainFrases); % Converter para minúsculas
-frasestoken = tokenizedDocument(trainFrases); % Tokenizar frases
-cleanfrasestoken = removeStopWords(frasestoken); % Remover stopwords
-cleanfrases = joinWords(cleanfrasestoken); % Reunir palavras
-trainFrases = string(cleanfrases);
+trainFrasestoken = tokenizedDocument(trainFrases); % Tokenizar frases
+cleanTrainFrasestoken = removeStopWords(trainFrasestoken); % Remover stopwords
+cleanTrainFrases = joinWords(cleanTrainFrasestoken); % Reunir palavras
+trainFrases = string(cleanTrainFrases);
 trainFrases = regexprep(trainFrases, '[.,]', ''); % Remover pontos e vírgulas
 
 % Processamento das testFrases
 testFrases = string(testFrases);
 testFrases = lower(testFrases); % Converter para minúsculas
-frasestoken = tokenizedDocument(testFrases); % Tokenizar frases
-cleanfrasestoken = removeStopWords(frasestoken); % Remover stopwords
-cleanfrases = joinWords(cleanfrasestoken); % Reunir palavras
-testFrases = string(cleanfrases);
+testFrasestoken = tokenizedDocument(testFrases); % Tokenizar frases
+cleanTestFrasestoken = removeStopWords(testFrasestoken); % Remover stopwords
+cleanTestFrases = joinWords(cleanTestFrasestoken); % Reunir palavras
+testFrases = string(cleanTestFrases);
 testFrases = regexprep(testFrases, '[.,]', ''); % Remover pontos e vírgulas
 
 % -------------------------------------
@@ -80,8 +115,6 @@ end
 % Verificar números de telefone e frases do conjunto de teste
 validSpamIndices = true(length(testFrases), 1); % Inicializar todos os índices como válidos
 
-disp(existentSpam);
-
 for ctg = 1:length(testFrases)
     numAtual = string(testNumeros(ctg)); % Número atual no conjunto de teste
     
@@ -96,6 +129,8 @@ end
 testFrases = testFrases(validSpamIndices);
 testCategorias = testCategorias(validSpamIndices);
 testNumeros = testNumeros(validSpamIndices);
+
+%%
 
 % Configuração do Bloom Filter
 p = 0.001;  % Probabilidade de falsos positivos
@@ -119,15 +154,16 @@ for i = 1:m
         falsos = falsos + 1;
     end
 end
-%disp(falsos);  % Exibir o número de falsos negativos
 
 % Verificar falsos positivos no conjunto de teste
 falsos_positivos = 0;
+falsosPositivosIndices = false(length(testFrases), 1);
 spamPhone = {}; %cria array vazio para número de telefones que dêem falso positivo
 
 for i = 1:length(testFrases)
     if membroBF(BF, testFrases{i}, k)
         falsos_positivos = falsos_positivos + 1;
+        falsosPositivosIndices(i) = true;
 
         % Recuperar o número de telefone associado à frase
         phoneIndex = find(strcmp(testFrases{i}, testFrases));
@@ -139,6 +175,10 @@ for i = 1:length(testFrases)
         end
     end
 end
+
+testFrases = testFrases(~falsosPositivosIndices);
+testCategorias = testCategorias(~falsosPositivosIndices);
+testNumeros = testNumeros(~falsosPositivosIndices);
 
 % Exibir os resultados de falsos positivos
 %fprintf('Falsos positivos: %d\n', falsos_positivos);
@@ -171,30 +211,15 @@ combinedSpamData = [existentSpamData; newSpamData];
 % Atualiza o CSV
 writetable(combinedSpamData, 'lista_negra.csv');
 
-
-%%
-% Naive Bayes
-
-% Exibir resultados para validação
-%disp('Conjunto de treino (frases):');
-%disp(trainFrases);
-
-%disp('Conjunto de treino (categorias):');
-%disp(trainCategorias);
-
-%disp('Conjunto de teste (frases):');
-%disp(testFrases);
-
-%disp('Conjunto de teste (categorias):');
-%disp(testCategorias);
-    
-%------------------------------
+if length(testFrases) < 1
+    fprintf("\n");
+    return;
+end
+%% Naive Bayes
 
 vocabulary = createVocabulary(trainFrases);
 %remover strings vazias
 vocabulary = vocabulary(vocabulary ~= "");
-%disp('Vocabulário único:');
-%disp(vocabulary);
 
 %------------------------------
 
@@ -221,27 +246,19 @@ end
 %significa que na primeria frase aparece uma vez a primeria palavra da Bag-of-Words
 %disp('Matriz Ocorrências:');
 %disp(matriz_ocorrencias);
-imagesc(matriz_ocorrencias)
+imagesc(matriz_ocorrencias);
+
 % ------------------------------
 
 % Criar um vetor com a frase correspondente a cada linha da matriz
 % O vetor será simplesmente as frases, já que cada linha da matriz ocorrências
 % corresponde a uma frase única.
 fraseCorrespondente = trainFrases;
-%disp(trainFrases);
-
-% ------------------------------
 
 % numero de casos favoraveis/ numero de casos possiveis 
 % P(I) - prob de calhar I a dividir por todos
 % P(B) - ...
 % P(P) - ...
-
-% Depois tenho que fazer a % P("palavra_à_escolha"|I) = (categoria palavra_à_escolha na classe I) / (numero de palavras na classe I)
-% fazer isto para os três casos, I, P, B
-
-
-%calcular P(I), P(B) e P(P)
 
 %categorias
 categorias_unicas = ['I', 'B', 'P'];
@@ -257,7 +274,6 @@ end
 
 
 %exibir as probabilidades das categorias
-%disp('Probabilidades das categorias:');
 for ctg = 1:length(categorias_unicas)
     %fprintf('P(%s) = %.3f\n', categorias_unicas(ctg), probabilidades_categoria(ctg));
 end
@@ -360,7 +376,13 @@ end
 precisao = (correto / length(testCategorias)) * 100;
 
 % exibir a precisão
-fprintf('Precisão do modelo Naive Bayes: %.2f%%\n', precisao);
+if customData == 0
+    fprintf('Precisão do modelo Naive Bayes: %.2f%%\n', precisao);
+end
+
+
+%%
+%Minhash
 
 % 1 -> primeiro vou gerar shingles a partir das frases
 
@@ -406,8 +428,15 @@ trainMinhashSignatures = cellfun(@(x) generateMinhashSignatures(x, numHashFuncti
 
 % 4 -> similaridade de Jaccard: calcular similaridade entre assinaturas de teste e treino
 
-%limite de similaridade
-similarity_threshold = 0.60;
+%limite similaridade
+similarity_threshold = input('Digite o valor do threshold de similaridade (ex: 0.60): ');
+% Verificar se o valor inserido é válido
+if isempty(similarity_threshold) || ~isnumeric(similarity_threshold) || similarity_threshold < 0 || similarity_threshold > 1
+    disp('Valor inválido! A usar o valor padrão de 0.60.');
+    similarity_threshold = 0.60;
+end
+
+fprintf('Threshold de similaridade definido como: %.2f\n', similarity_threshold);
 
 % inicializar matriz de similaridades
 similarities = zeros(length(testMinhashSignatures), length(trainMinhashSignatures));
@@ -420,26 +449,9 @@ for i = 1:length(testMinhashSignatures)
     end
 end
 
-% exibir matriz de similaridades
-%disp('Matriz de similaridades (teste x treino):');
-%disp(similarities);
-
-% agora vou fazer a recomendação baseada na similaridade
-% primeiro identifico a frase mais semelhante no treino para cada frase do teste
-% segundo uso a categoria associada à frase mais semelhante como recomendação
 
 % identificar as frases de treino mais semelhantes para cada frase de teste
 [maxSimilarities, bestMatches] = max(similarities, [], 2);
-
-% exibir frases de teste e as suas correspondentes de treino mais semelhantes
-disp('Frases de teste e suas correspondentes de treino mais semelhantes:');
-for i = 1:length(testFrases)
-    if maxSimilarities(i) > similarity_threshold
-    fprintf('Frase de teste: "%s"\n', testFrases{i});
-    fprintf('Frase mais semelhante no treino: "%s"\n', trainFrases{bestMatches(i)});
-    fprintf('Similaridade estimada de Jaccard: %.2f\n\n', maxSimilarities(i));
-    end
-end
 
 %----------------------------------------------------------------------------------------
 
@@ -485,6 +497,11 @@ recommendations('medical') = {
 
 % Criar grupos de frases de treino/teste por categoria
 categorias_unicas = unique(categorias_previstas);
+
+showLastResults = input('Deseja ver todas as frases de teste ou apenas as similares? (0/1): ', 's');
+
+counter = 0;
+
 for c = 1:length(categorias_unicas)
     % Categoria atual
     categoria_atual = categorias_unicas(c);
@@ -524,7 +541,7 @@ for c = 1:length(categorias_unicas)
                 % Frase de treino mais semelhante
                 [~, bestMatchIdx] = max(similarities(i, similar_indices));
                 bestMatch = similar_indices(bestMatchIdx);
-        
+                counter = counter + 1;
                 % Obter categoria mapeada para recomendação
                 if isKey(category_to_recommendation, categoria_atual)
                     recommendationKey = category_to_recommendation(categoria_atual);
@@ -547,10 +564,15 @@ for c = 1:length(categorias_unicas)
                 end
                 fprintf('\n');
             else
-                fprintf('Frase de teste: "%s" não encontrou frases semelhantes no treino.\n\n', testSubset{i});
+                if lower(showLastResults) == '0'
+                    fprintf('Frase de teste: "%s" não encontrou frases semelhantes no treino.\n\n', testSubset{i});
+                end
             end
         end
     else
         fprintf('Nenhum dado para a categoria: %s\n', categoria_atual);
     end
 end
+
+fprintf("Número de frases similares %d \n", counter)
+fprintf('Percentagem de frases similares: %.2f%%\n', (counter/length(testFrases))*100);
