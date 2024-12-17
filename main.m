@@ -121,7 +121,7 @@ for ctg = 1:length(testFrases)
     % Verificar se o número está na lista negra
     if any(strcmp(numAtual, existentSpam))
         validSpamIndices(ctg) = false;
-        disp(['Número ', numAtual, ' detetado como SPAM']); % Mensagem de deteção
+        fprintf('Número %s detetado como SPAM\n', numAtual); % Mensagem de deteção
     end
 end
 
@@ -169,7 +169,7 @@ for i = 1:length(testFrases)
         phoneIndex = find(strcmp(testFrases{i}, testFrases));
 
         if ~isempty(phoneIndex)
-            spamPhone{end + 1} = testNumeros(phoneIndex);  % Encontrar o número associado à frase
+            spamPhone{end + 1} = string(testNumeros(phoneIndex));  % Encontrar o número associado à frase
             fprintf('Frase com falso positivo: %s\n', testFrases{i});
             fprintf('Número de telefone associado: %s\n', spamPhone{end});
         end
@@ -189,8 +189,10 @@ pfp = (1 - exp(-(k * m) / n))^k;
 %fprintf('Probabilidade Teórica Estimada de Falsos Positivos = %.3f%s\n', pfp * 100, "%");
 
 % Exibir os números de telefone correspondentes aos falsos positivos
-disp('Números de telefone associados aos falsos positivos:');
-disp(spamPhone);
+if isempty(spamPhone)
+    disp('Números de telefone associados aos falsos positivos:');
+    disp(spamPhone);
+end
 
 %transpor array para coluna
 spamPhone = spamPhone';
@@ -500,25 +502,22 @@ categorias_unicas = unique(categorias_previstas);
 
 showLastResults = input('Deseja ver todas as frases de teste ou apenas as similares? (0/1): ', 's');
 
+% Inicializar contador de frases similares
 counter = 0;
 
 for c = 1:length(categorias_unicas)
     % Categoria atual
     categoria_atual = categorias_unicas(c);
     
-    % Subconjuntos de treino e teste para a categoria atual
+    % Filtrar subconjuntos de treino e teste para a categoria atual
     trainSubset = trainFrases(strcmp(trainCategorias, categoria_atual));
     testSubset = testFrases(strcmp(categorias_previstas, categoria_atual));
     
     if ~isempty(trainSubset) && ~isempty(testSubset)
-        % MinHash para a categoria atual
-        fprintf('Processando MinHash para a categoria: %s\n', categoria_atual);
-
-        % Gerar shingles
+        % Gerar shingles e hashes
         trainShingles = cellfun(@(x) generateShingles({x}, shingle_size), trainSubset, 'UniformOutput', false);
         testShingles = cellfun(@(x) generateShingles({x}, shingle_size), testSubset, 'UniformOutput', false);
 
-        % Gerar hashes
         trainHashedShingles = cellfun(@(x) hashShingle(x), trainShingles, 'UniformOutput', false);
         testHashedShingles = cellfun(@(x) hashShingle(x), testShingles, 'UniformOutput', false);
 
@@ -526,45 +525,35 @@ for c = 1:length(categorias_unicas)
         trainSignatures = cellfun(@(x) generateMinhashSignatures(x, numHashFunctions, prime, a, b), trainHashedShingles, 'UniformOutput', false);
         testSignatures = cellfun(@(x) generateMinhashSignatures(x, numHashFunctions, prime, a, b), testHashedShingles, 'UniformOutput', false);
 
-        % Similaridades
+        % Calcular similaridades
         similarities = zeros(length(testSignatures), length(trainSignatures));
         for i = 1:length(testSignatures)
             for j = 1:length(trainSignatures)
                 similarities(i, j) = checkSimilarities(testSignatures{i}, trainSignatures{j});
             end
         end
-
-        % Recomendação com base no MinHash
+        
+        % Processar recomendações e similaridades relevantes
         for i = 1:length(testSubset)
-            similar_indices = find(similarities(i, :) >= similarity_threshold);
+            currentSimilarities = similarities(i, :); % Linha atual de similaridades
+            
+            % Encontrar índices com similaridade acima do threshold
+            similar_indices = find(currentSimilarities >= similarity_threshold);
+            
             if ~isempty(similar_indices)
-                % Frase de treino mais semelhante
-                [~, bestMatchIdx] = max(similarities(i, similar_indices));
+                % Encontrar a similaridade máxima e o melhor match
+                [~, bestMatchIdx] = max(currentSimilarities(similar_indices));
                 bestMatch = similar_indices(bestMatchIdx);
                 counter = counter + 1;
-                % Obter categoria mapeada para recomendação
-                if isKey(category_to_recommendation, categoria_atual)
-                    recommendationKey = category_to_recommendation(categoria_atual);
-                    if isKey(recommendations, recommendationKey)
-                        assignedRecommendation = recommendations(recommendationKey);
-                    else
-                        assignedRecommendation = {'No recommendation available.'};
-                    end
-                else
-                    assignedRecommendation = {'No recommendation available.'};
-                end
-        
+
                 % Exibir resultados
                 fprintf('Frase de teste: "%s"\n', testSubset{i});
                 fprintf('Frase semelhante no treino: "%s"\n', trainSubset{bestMatch});
-                fprintf('Similaridade estimada de Jaccard: %.2f\n', max(similarities(i, :)));
-                fprintf('Recomendações:\n');
-                for r = 1:length(assignedRecommendation)
-                    fprintf('- %s\n', assignedRecommendation{r});
-                end
+                fprintf('Similaridade estimada de Jaccard: %.2f\n', currentSimilarities(bestMatch));
                 fprintf('\n');
             else
-                if lower(showLastResults) == '0'
+                % Caso não haja similaridade acima do threshold
+                if showLastResults == 0
                     fprintf('Frase de teste: "%s" não encontrou frases semelhantes no treino.\n\n', testSubset{i});
                 end
             end
@@ -574,5 +563,133 @@ for c = 1:length(categorias_unicas)
     end
 end
 
-fprintf("Número de frases similares %d \n", counter)
-fprintf('Percentagem de frases similares: %.2f%%\n', (counter/length(testFrases))*100);
+% Exibir contagem e percentagem de frases similares
+fprintf('Número de frases similares: %d\n', counter);
+fprintf('Percentagem de frases similares: %.2f%%\n', (counter / length(testFrases)) * 100);
+
+linhaMaximo = max(similarities, [], 2); % Máximo ao longo das colunas (dimensão 2)
+disp(linhaMaximo);
+
+%% GRÁFICOS
+
+graficos = input("Mostrar gráficos (s/n)", 's');
+
+if isempty(graficos)
+    graficos = 'n';
+end
+
+if lower(graficos) == 'n'
+    return
+end
+
+%% BLOOM FILTER
+
+%tabela das métricas do bloom filter
+practical_fp_rate = (falsos_positivos / length(testFrases)) * 100;
+
+BF_metrics = table(n, k, p, pfp*100, falsos_positivos, practical_fp_rate, falsos, ...
+    'VariableNames', {'TamanhoFiltro_N','FuncoesHash_k','Prob_p','FP_Teorico_%','FP_Contagem','FP_Pratica_%','FN_Contagem'});
+
+disp('Métricas do Bloom Filter:');
+disp(BF_metrics);
+
+%grafico para comparar falsos positivos teorico vs pratico
+figure;
+bar([pfp*100, practical_fp_rate]);
+set(gca, 'XTickLabel', {'Prob. Teórica', 'Prob. Prática'});
+ylabel('Taxa de Falsos Positivos (%)');
+title('Comparação da Probabilidade de Falsos Positivos - Bloom Filter');
+%% NAIVE BAYES
+
+%vou fazer uma matriz de confusão entre as categorias I, B, P
+[cm, order] = confusionmat(testCategorias, categorias_previstas);
+
+disp('Matriz de Confusão (Linhas: Verdadeiro, Colunas: Previsto):');
+disp(array2table(cm,'VariableNames',cellstr(order'),'RowNames',cellstr(order')));
+
+% Exibição da matriz de confusão em forma gráfica
+figure;
+confusionchart(cm, order);
+title('Matriz de Confusão - Naive Bayes');
+
+% Cálculo de métricas por classe
+numClasses = length(order);
+precision = zeros(numClasses,1);
+%recall mede casos que foram identificados como positivos
+recall = zeros(numClasses,1); %quanto mais alto o recall, menos falsos positivos há
+%f1score é média entre precisão e recall
+f1score = zeros(numClasses,1); %quanto mais próximo de 1 melhor o modelo
+
+for i = 1:numClasses
+    TP = cm(i,i);
+    FP = sum(cm(:,i)) - TP;
+    FN = sum(cm(i,:)) - TP;
+    precision(i) = TP / (TP + FP);
+    recall(i) = TP / (TP + FN);
+    f1score(i) = 2 * (precision(i)*recall(i)) / (precision(i) + recall(i));
+end
+
+accuracy = (sum(diag(cm)) / sum(cm(:))) * 100;
+
+% Converter order em string se necessário
+if iscell(order)
+    Categoria = string(order);
+else
+    Categoria = order;
+end
+
+% Criar a tabela (agora todos devem ter o mesmo comprimento)
+NaiveBayesMetrics = table(Categoria, precision, recall, f1score, ...
+    'VariableNames', {'Categoria','Precisao','Recall','F1Score'});
+
+disp('Métricas por Classe - Naive Bayes:');
+disp(NaiveBayesMetrics);
+
+fprintf('Precisão Global: %.2f%%\n', accuracy);
+
+% Gráfico de barras das métricas
+figure;
+bar([precision recall f1score]);
+set(gca,'XTickLabel',order);
+ylabel('Valor');
+legend('Precisão','Recall','F1-score');
+title('Métricas de Desempenho por Categoria - Naive Bayes');
+
+%% MINHASH
+
+%Gráfico de Distribuição de Similaridades
+
+figure;
+histogram(linhaMaximo, 'Normalization','pdf');
+title('Distribuição das Similaridades MinHash (Jaccard estimado)');
+xlabel('Similaridade');
+ylabel('Densidade');
+
+% Estatísticas descritivas
+meanSimilarity = mean(allSimilarities);
+medianSimilarity = median(allSimilarities);
+fprintf('Similaridade Média: %.2f\n', meanSimilarity);
+fprintf('Mediana da Similaridade: %.2f\n', medianSimilarity);
+
+
+%bloxpot de similaridade
+%O boxplot das similaridades de MinHash é uma representação gráfica 
+%que mostra a distribuição das similaridades estimadas (via MinHash) entre pares de frases do conjunto de teste e treino
+figure;
+boxplot(linhaMaximo);
+title('Boxplot das Similaridades MinHash');
+ylabel('Similaridade');
+
+
+%tabela dos top 5 mais similares
+% Encontrar os top 5 pares de maior similaridade
+[sortedVals, sortedIdx] = sort(allSimilarities, 'descend');
+topN = 5;
+topIndices = sortedIdx(1:topN);
+[ti, tj] = ind2sub(size(similarities), topIndices);
+
+TopPairsTable = table(testFrases(ti), trainFrases(tj), sortedVals(1:topN), ...
+    'VariableNames', {'FraseTeste','FraseTreino','Similaridade'});
+disp('Top 5 pares mais similares (teste-treino):');
+disp(TopPairsTable);
+
