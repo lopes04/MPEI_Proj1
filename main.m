@@ -128,7 +128,7 @@ testFrases = testFrases(validSpamIndices);
 testCategorias = testCategorias(validSpamIndices);
 testNumeros = testNumeros(validSpamIndices);
 
-%%
+%
 
 % Configuração do Bloom Filter
 p = 0.001;  % Probabilidade de falsos positivos
@@ -370,7 +370,7 @@ end
 % categorias previstas com as frases correspondentes
 %disp('Frases e suas categorias previstas:');
 for i = 1:length(testFrases)
-    %fprintf('Frase: "%s" -> Categoria prevista: %s\n', testFrases{i}, categorias_previstas(i));
+    fprintf('Frase: "%s" -> Categoria prevista: %s\n', testFrases{i}, categorias_previstas(i));
 end
 % calcular a precisão
 precisao = (correto / length(testCategorias)) * 100;
@@ -566,107 +566,3 @@ fprintf('Número de frases similares: %d\n', counter);
 fprintf('Percentagem de frases similares: %.2f%%\n', (counter / length(testFrases)) * 100);
 
 linhaMaximo = max(similarities, [], 2); % Máximo ao longo das colunas (dimensão 2)
-disp(linhaMaximo);
-
-%% GRÁFICOS
-
-graficos = input("Mostrar gráficos (s/n)", 's');
-
-if isempty(graficos)
-    graficos = 'n';
-end
-
-if lower(graficos) == 'n'
-    return
-end
-
-%% BLOOM FILTER
-
-%tabela das métricas do bloom filter
-practical_fp_rate = (falsos_positivos / length(testFrases)) * 100;
-
-BF_metrics = table(n, k, p, pfp*100, falsos_positivos, practical_fp_rate, falsos, ...
-    'VariableNames', {'TamanhoFiltro_N','FuncoesHash_k','Prob_p','FP_Teorico_%','FP_Contagem','FP_Pratica_%','FN_Contagem'});
-
-disp('Métricas do Bloom Filter:');
-disp(BF_metrics);
-
-%grafico para comparar falsos positivos teorico vs pratico
-figure;
-bar([pfp*100, practical_fp_rate]);
-set(gca, 'XTickLabel', {'Prob. Teórica', 'Prob. Prática'});
-ylabel('Taxa de Falsos Positivos (%)');
-title('Comparação da Probabilidade de Falsos Positivos - Bloom Filter');
-%% NAIVE BAYES
-
-%vou fazer uma matriz de confusão entre as categorias I, B, P
-[cm, order] = confusionmat(testCategorias, categorias_previstas);
-
-disp('Matriz de Confusão (Linhas: Verdadeiro, Colunas: Previsto):');
-disp(array2table(cm,'VariableNames',cellstr(order'),'RowNames',cellstr(order')));
-
-% Exibição da matriz de confusão em forma gráfica
-figure;
-confusionchart(cm, order);
-title('Matriz de Confusão - Naive Bayes');
-chart.FontSize = 300; % Ajuste o valor conforme necessário
-
-% Cálculo de métricas por classe
-numClasses = length(order);
-precision = zeros(numClasses,1);
-%recall mede casos que foram identificados como positivos
-recall = zeros(numClasses,1); %quanto mais alto o recall, menos falsos positivos há
-%f1score é média entre precisão e recall
-f1score = zeros(numClasses,1); %quanto mais próximo de 1 melhor o modelo
-
-for i = 1:numClasses
-    TP = cm(i,i);
-    FP = sum(cm(:,i)) - TP;
-    FN = sum(cm(i,:)) - TP;
-    precision(i) = TP / (TP + FP);
-    recall(i) = TP / (TP + FN);
-    f1score(i) = 2 * (precision(i)*recall(i)) / (precision(i) + recall(i));
-end
-
-accuracy = (sum(diag(cm)) / sum(cm(:))) * 100;
-
-% Converter order em string se necessário
-if iscell(order)
-    Categoria = string(order);
-else
-    Categoria = order;
-end
-
-% Criar a tabela (agora todos devem ter o mesmo comprimento)
-NaiveBayesMetrics = table(Categoria, precision, recall, f1score, ...
-    'VariableNames', {'Categoria','Precisao','Recall','F1Score'});
-
-disp('Métricas por Classe - Naive Bayes:');
-disp(NaiveBayesMetrics);
-
-fprintf('Precisão Global: %.2f%%\n', accuracy);
-
-% Gráfico de barras das métricas
-figure;
-bar([precision recall f1score]);
-set(gca,'XTickLabel',order);
-ylabel('Valor');
-legend('Precisão','Recall','F1-score');
-title('Métricas de Desempenho por Categoria - Naive Bayes');
-
-%% MINHASH
-
-%Gráfico de Distribuição de Similaridades
-
-figure;
-histogram(linhaMaximo, 'Normalization','pdf');
-title('Distribuição das Similaridades MinHash (Jaccard estimado)');
-xlabel('Similaridade');
-ylabel('Densidade');
-
-% Estatísticas descritivas
-meanSimilarity = mean(linhaMaximo);
-medianSimilarity = median(linhaMaximo);
-fprintf('Similaridade Média: %.2f\n', meanSimilarity);
-fprintf('Mediana da Similaridade: %.2f\n', medianSimilarity);
-

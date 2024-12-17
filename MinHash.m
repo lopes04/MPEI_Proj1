@@ -244,3 +244,7 @@ for c = 1:length(categorias_unicas)
         fprintf('Nenhum dado para a categoria: %s\n', categoria_atual);
     end
 end
+
+linhaMaximo = max(similarities, [], 2);
+
+save MinHash_data.mat

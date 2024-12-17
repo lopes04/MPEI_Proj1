@@ -1,7 +1,6 @@
-Só para o Sid usar (melhor código aqui meus putos)
-Aqui é Naive Bayes
+%% Naive Bayes
 % Ler o ficheiro CSV
-data = readtable('dataset.csv');
+data = readtable('dataset1_com_telefones.csv');
 % Exibir os nomes das colunas
 %disp(data.Properties.VariableNames);
 
@@ -58,7 +57,7 @@ testCategorias = categorias(testIndices);
 
 %disp('Conjunto de teste (categorias):');
 %disp(testCategorias);
-
+    
 %--------------------------------
 
 % Processamento das trainFrases
@@ -110,8 +109,6 @@ testFrases = regexprep(testFrases, ',', '');
 testFrases = lower(testFrases);
 disp(testFrases);
 
-
-
 %------------------------------
 
 %criar o vocabulário único das frases (lista de palavras únicas)
@@ -147,7 +144,6 @@ end
 disp('Matriz Ocorrências:');
 disp(matriz_ocorrencias);
 imagesc(matriz_ocorrencias)
-
 % ------------------------------
 
 % Criar um vetor com a frase correspondente a cada linha da matriz
@@ -244,6 +240,7 @@ end
 categorias_previstas = strings(length(testFrases), 1);
 
 % variavel para avaliar precisão (ver quantas estão corretas)
+correto = 0;
 
 % Classificar cada frase de teste
 for i = 1:length(testFrases)
@@ -270,6 +267,10 @@ for i = 1:length(testFrases)
     % Escolher a categoria com maior probabilidade posterior
     [~, idxMax] = max(prob_posterior);
     categorias_previstas(i) = categorias_unicas(idxMax);
+    % ver as que estão certas para a precisão
+    if categorias_previstas(i) == testCategorias(i)
+        correto = correto + 1;
+    end
 end
 
 % categorias previstas com as frases correspondentes
@@ -277,4 +278,11 @@ disp('Frases e suas categorias previstas:');
 for i = 1:length(testFrases)
     fprintf('Frase: "%s" -> Categoria prevista: %s\n', testFrases{i}, categorias_previstas(i));
 end
+% calcular a precisão
+precisao = (correto / length(testCategorias)) * 100;
 
+% exibir a precisão
+fprintf('Precisão do modelo Naive Bayes: %.2f%%\n', precisao);
+
+
+save('naiveBayes_data.mat');
