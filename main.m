@@ -187,7 +187,7 @@ pfp = (1 - exp(-(k * m) / n))^k;
 %fprintf('Probabilidade Teórica Estimada de Falsos Positivos = %.3f%s\n', pfp * 100, "%");
 
 % Exibir os números de telefone correspondentes aos falsos positivos
-if isempty(spamPhone)
+if ~isempty(spamPhone)
     disp('Números de telefone associados aos falsos positivos:');
     disp(spamPhone);
 end
