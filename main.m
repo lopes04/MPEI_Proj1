@@ -52,9 +52,7 @@ if lower(useCustomData) == 's'
     
     % Copiar categorias vazias (placeholder)
     testCategorias = repmat("custom", size(testFrases));
-
-    adicionar = input('Deseja adicionar estes dados ao dataset existente? (s/n): ', 's');
-
+    
 else
     testIndices = randIndices(trainLimit + 1:end);
 
@@ -611,6 +609,7 @@ disp(array2table(cm,'VariableNames',cellstr(order'),'RowNames',cellstr(order')))
 figure;
 confusionchart(cm, order);
 title('Matriz de Confusão - Naive Bayes');
+chart.FontSize = 300; % Ajuste o valor conforme necessário
 
 % Cálculo de métricas por classe
 numClasses = length(order);
@@ -666,30 +665,8 @@ xlabel('Similaridade');
 ylabel('Densidade');
 
 % Estatísticas descritivas
-meanSimilarity = mean(allSimilarities);
-medianSimilarity = median(allSimilarities);
+meanSimilarity = mean(linhaMaximo);
+medianSimilarity = median(linhaMaximo);
 fprintf('Similaridade Média: %.2f\n', meanSimilarity);
 fprintf('Mediana da Similaridade: %.2f\n', medianSimilarity);
-
-
-%bloxpot de similaridade
-%O boxplot das similaridades de MinHash é uma representação gráfica 
-%que mostra a distribuição das similaridades estimadas (via MinHash) entre pares de frases do conjunto de teste e treino
-figure;
-boxplot(linhaMaximo);
-title('Boxplot das Similaridades MinHash');
-ylabel('Similaridade');
-
-
-%tabela dos top 5 mais similares
-% Encontrar os top 5 pares de maior similaridade
-[sortedVals, sortedIdx] = sort(allSimilarities, 'descend');
-topN = 5;
-topIndices = sortedIdx(1:topN);
-[ti, tj] = ind2sub(size(similarities), topIndices);
-
-TopPairsTable = table(testFrases(ti), trainFrases(tj), sortedVals(1:topN), ...
-    'VariableNames', {'FraseTeste','FraseTreino','Similaridade'});
-disp('Top 5 pares mais similares (teste-treino):');
-disp(TopPairsTable);
 
