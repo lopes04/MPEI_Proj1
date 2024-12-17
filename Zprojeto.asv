@@ -396,7 +396,7 @@ precision = zeros(numClasses,1);
 %recall mede casos que foram identificados como positivos
 recall = zeros(numClasses,1); %quanto mais alto o recall, menos falsos positivos há
 %f1score é média entre precisão e recall
-f1score = zeros(numClasses,1); %quanto mais próximo de 1 melhor o modelo
+f1score = zeros(numClasses,1); %quanto mais próxim
 
 for i = 1:numClasses
     TP = cm(i,i);
