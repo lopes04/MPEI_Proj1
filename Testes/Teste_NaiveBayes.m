@@ -16,3 +16,13 @@ set(gca,'XTickLabel',order);
 ylabel('Valor');
 legend('Precisão','Recall','F1-score');
 title('Métricas de Desempenho por Categoria - Naive Bayes');
+
+[cm, order] = confusionmat(testCategorias, categorias_previstas);
+
+disp('Matriz de Confusão (Linhas: Verdadeiro, Colunas: Previsto):');
+disp(array2table(cm,'VariableNames',cellstr(order'),'RowNames',cellstr(order')));
+
+% Exibição da matriz de confusão em forma gráfica
+figure;
+confusionchart(cm, order);
+title('Matriz de Confusão - Naive Bayes');
