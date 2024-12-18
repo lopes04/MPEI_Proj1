@@ -1,4 +1,5 @@
 % Ler dataset principal
+load naiveBayes_data.mat %% NÃO ESTÁ NA PASTE ENTREGUE
 
 data = readtable('dataset1_com_telefones.csv');
 

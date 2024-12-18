@@ -246,7 +246,7 @@ end
 %significa que na primeria frase aparece uma vez a primeria palavra da Bag-of-Words
 %disp('Matriz Ocorrências:');
 %disp(matriz_ocorrencias);
-imagesc(matriz_ocorrencias);
+%imagesc(matriz_ocorrencias);
 
 % ------------------------------
 
@@ -537,7 +537,6 @@ for c = 1:length(categorias_unicas)
             
             % Encontrar índices com similaridade acima do threshold
             similar_indices = find(currentSimilarities >= similarity_threshold);
-            
             if ~isempty(similar_indices)
                 % Encontrar a similaridade máxima e o melhor match
                 [~, bestMatchIdx] = max(currentSimilarities(similar_indices));
@@ -548,6 +547,11 @@ for c = 1:length(categorias_unicas)
                 fprintf('Frase de teste: "%s"\n', testSubset{i});
                 fprintf('Frase semelhante no treino: "%s"\n', trainSubset{bestMatch});
                 fprintf('Similaridade estimada de Jaccard: %.2f\n', currentSimilarities(bestMatch));
+                fprintf('Recomendações:\n'); %% NÃO ESTA NA ENTREGA
+                for r = 1:length(assignedRecommendation)
+                    fprintf('- %s\n', assignedRecommendation{r});
+                end
+                fprintf('\n');
                 fprintf('\n');
             else
                 % Caso não haja similaridade acima do threshold
